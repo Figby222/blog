@@ -105,4 +105,20 @@ describe("BlogPost", () => {
         expect(errorHeading).toBeInTheDocument();
     })
 
+    it("Renders a different title", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "A different title",
+            text: "Different text"
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const titleHeading = screen.queryByRole(
+            "heading",
+            { name: /A different title/i }
+        );
+
+        expect(titleHeading).toBeInTheDocument();
+    })
+
 })
