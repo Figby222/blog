@@ -20,8 +20,8 @@ ErrorPage.defaultProps = {
 }
 
 ErrorPage.propTypes = {
-    status: PropTypes.number.isRequired,
-    message: PropTypes.string.isRequired,
+    status: PropTypes.number,
+    message: PropTypes.string,
 };
 
 
