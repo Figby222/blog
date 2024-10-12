@@ -95,6 +95,6 @@ describe("Error Page", () => {
 
         const links = screen.queryAllByRole("link");
 
-        expect(links).toBeGreaterThanOrEqual(1);
+        expect(links.length).toBeGreaterThanOrEqual(1);
     })
 })
