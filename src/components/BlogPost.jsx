@@ -4,9 +4,12 @@ const BlogPost = ({ useAllData, postId }) => {
     const { error, loading, data } = useAllData();
     console.log(data);
 
+    if (loading) {
+        return (<h1 className="loading">Loading...</h1>)
+    }
+
     return(
         <>
-            <h1 className="loading">Loading...</h1>
             <h1 className="error">An error has occurred</h1>
             <main>
                 <h1 className="blog-title">{ data && data.title }</h1>
