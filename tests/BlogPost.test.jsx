@@ -36,5 +36,18 @@ describe("BlogPost", () => {
 
         expect(loadingHeading).toBeInTheDocument();
     })
-    
+
+    it("Renders heading", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Blog Title",
+            text: "Blog Text",
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const headings = screen.queryAllByRole("heading");
+
+        expect(headings.length).toBeGreaterThanOrEqual(1);
+    })
+
 })
