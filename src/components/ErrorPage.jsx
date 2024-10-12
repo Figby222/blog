@@ -7,14 +7,18 @@ const ErrorPage = ({ status, message }) => {
             <h1 className="main-heading">
                 { status } - { message }
             </h1>
-            <Link className="home-link" to="/"></Link>
+            <Link className="home-link" to="/">
+                Home
+            </Link>
         </>
     )
 };
+
 
 ErrorPage.propTypes = {
     status: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
 };
+
 
 export default ErrorPage;
