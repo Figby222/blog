@@ -37,4 +37,17 @@ describe("Error Page", () => {
 
         expect(heading).toBeInTheDocument();
     })
+
+    it("Renders error with different status", () => {
+        const status = 403;
+
+        render(<ErrorPage status={status} message={""} />);
+
+        const heading = screen.queryByRole(
+            "heading",
+            { name: /403/i },
+        );
+        
+        expect(heading).toBeInTheDocument();
+    })
 })
