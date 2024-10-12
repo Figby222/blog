@@ -79,4 +79,17 @@ describe("BlogPost", () => {
         expect(paragraphs.length).toBeGreaterThanOrEqual(1);
     })
 
+    it("Renders paragraph with correct text", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Blog Title",
+            text: "Blog Text"
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const textParagraph = screen.queryByText(/Blog Text/i);
+
+        expect(textParagraph).toBeInTheDocument();
+    })
+
 })
