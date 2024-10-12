@@ -92,4 +92,17 @@ describe("BlogPost", () => {
         expect(textParagraph).toBeInTheDocument();
     })
 
+    it ("Renders an error heading if error", () => {
+        const mockUseAllData = getUseAllDataMock(true, false, null);
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const errorHeading = screen.queryByRole(
+            "heading",
+            { name: /error/i },
+        )
+
+        expect(errorHeading).toBeInTheDocument();
+    })
+
 })
