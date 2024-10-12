@@ -50,4 +50,17 @@ describe("Error Page", () => {
         
         expect(heading).toBeInTheDocument();
     })
+
+    it("Renders a heading with the error message", () => {
+        const errorMessage = "Error Message";
+
+        render(<ErrorPage status={404} message={errorMessage} />);
+
+        const messageHeading = screen.queryByRole(
+            "heading",
+            { name: /Error Message/i },
+        )
+
+        expect(messageHeading).toBeInTheDocument();
+    })
 })
