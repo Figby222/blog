@@ -14,6 +14,10 @@ const ErrorPage = ({ status, message }) => {
     )
 };
 
+ErrorPage.defaultProps = {
+    status: 404,
+    message: "Not Found"
+}
 
 ErrorPage.propTypes = {
     status: PropTypes.number.isRequired,
