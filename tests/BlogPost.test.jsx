@@ -50,4 +50,20 @@ describe("BlogPost", () => {
         expect(headings.length).toBeGreaterThanOrEqual(1);
     })
 
+    it("Renders heading on screen", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Blog Title",
+            text: "Blog Text",
+        })
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const titleHeading = screen.queryByRole(
+            "heading",
+            { name: /Blog Title/i },
+        );
+
+        expect(titleHeading).toBeInTheDocument();
+    })
+
 })
