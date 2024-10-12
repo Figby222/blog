@@ -3,3 +3,44 @@ get error message from props
 get error status from props
 send h1 & paragraph with error status & message
 send link to root
+
+BlogList
+call data fetch util with blog api link & http method
+if err occurs, redirect to error page with status & message
+if loading, show heading with loading text
+send main title h1 as a link to the blog post
+
+BlogPost
+call data fetch util with api link & http method
+if err occurs, redirect to error page with status & message
+if loading, show heading with loading text,
+send main title h1, main-text text
+
+
+Comments
+get comments from children prop
+send Form
+with title New Comment
+with textbox
+with submit button
+send comments ul 
+with li that has username paragraph & text paragraph & date paragraph
+
+TextBox
+state comes from prop
+send textbox input 
+label from props & 
+name from props & 
+class from props
+placeholder from children
+
+
+Form
+title from props
+send form with
+h1 for title
+send children
+
+SubmitButton
+send submit button with text from children &
+event listener from props
