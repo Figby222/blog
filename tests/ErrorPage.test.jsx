@@ -10,5 +10,15 @@ describe("Error Page", () => {
     
     it("Is a function", () => {
         expect(ErrorPage).toBeTypeOf("function");
+    });
+
+    it("Renders a heading", () => {
+        render(<ErrorPage status={404} message={"AAAA"} />);
+
+        const headings = screen.queryAllByRole("heading");
+
+        expect(headings.length).toBeGreaterThanOrEqual(1);
     })
+
+    
 })
