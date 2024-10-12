@@ -10,6 +10,7 @@ const BlogPost = ({ useAllData, postId }) => {
             <h1 className="error">An error has occurred</h1>
             <main>
                 <h1 className="blog-title">{ data && data.title }</h1>
+                <p className="blog-text">{ data && data.text }</p>
             </main>
         </>
     )
