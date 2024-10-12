@@ -19,4 +19,5 @@ describe("BlogPost", () => {
     it("Is a function", () => {
         expect(BlogPost).toBeTypeOf("function");
     })
+    a
 })
