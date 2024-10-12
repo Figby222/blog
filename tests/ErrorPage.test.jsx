@@ -6,5 +6,9 @@ import ErrorPage from "../src/components/ErrorPage.jsx";
 describe("Error Page", () => {
     it("Exists", () => {
         expect(ErrorPage).toBeDefined();
+    });
+    
+    it("Is a function", () => {
+        expect(ErrorPage).toBeTypeOf("function");
     })
 })
