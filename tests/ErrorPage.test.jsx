@@ -63,4 +63,17 @@ describe("Error Page", () => {
 
         expect(messageHeading).toBeInTheDocument();
     })
+
+    it("Renders heading with a different error message", () => {
+        const errorMessage = "Not Found";
+
+        render(<ErrorPage status={404} message={errorMessage} />);
+
+        const messageHeading = screen.queryByRole(
+            "heading",
+            { name: /Not Found/i },
+        );
+
+        expect(messageHeading).toBeInTheDocument();
+    })
 })
