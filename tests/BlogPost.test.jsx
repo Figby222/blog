@@ -29,9 +29,9 @@ describe("BlogPost", () => {
         
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
 
-        const loadingElement = screen.queryByText(/loading/i);
+        const loadingElements = screen.queryAllByText(/loading/i);
 
-        expect(loadingElement).toBeInTheDocument();
+        expect(loadingElements.length).toBeGreaterThanOrEqual(1);
     })
 
     it("Renders heading", () => {
@@ -139,9 +139,9 @@ describe("BlogPost", () => {
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
 
-        const loadingElement = screen.queryByText(/loading/i);
+        const loadingElements = screen.queryAllByText(/loading/i);
 
-        expect(loadingElement).not.toBeInTheDocument();
+        expect(loadingElements.length).not.toBeGreaterThanOrEqual(1);
     })
 
     it("Only renders error when error", () => {
