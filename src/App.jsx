@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1 class="main-heading">
+      <h1 className="main-heading">
         Blog
       </h1>
     </>
