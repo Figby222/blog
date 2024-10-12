@@ -1,0 +1,4 @@
+sign up page 
+log in page
+blogs list page,
+blog page,
