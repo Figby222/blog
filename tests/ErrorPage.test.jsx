@@ -97,4 +97,17 @@ describe("Error Page", () => {
 
         expect(links.length).toBeGreaterThanOrEqual(1);
     })
+
+    it(`Renders a link with "home" text`, () => {
+        render(<MemoryRouter>
+            <ErrorPage status={404} message={""} />
+        </MemoryRouter>);
+
+        const link = screen.queryByRole(
+            "link",
+            { name: /home/i},
+        );
+
+        expect(link).toBeInTheDocument();
+    })
 })
