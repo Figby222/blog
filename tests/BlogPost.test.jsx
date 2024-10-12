@@ -121,4 +121,17 @@ describe("BlogPost", () => {
         expect(titleHeading).toBeInTheDocument();
     })
 
+    it("Renders different text", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "A different title",
+            text: "Different text"
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const textParagraph = screen.queryByText(/Different Text/i);
+
+        expect(textParagraph).toBeInTheDocument();
+    })
+
 })
