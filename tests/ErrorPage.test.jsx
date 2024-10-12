@@ -20,5 +20,21 @@ describe("Error Page", () => {
         expect(headings.length).toBeGreaterThanOrEqual(1);
     })
 
-    
+    it("Renders a heading with error status code", () => {
+        const status = 404;
+
+        render(<ErrorPage status={status} message={""} />);
+
+        
+
+
+
+        
+        const heading = screen.queryByRole(
+            "heading", 
+            { name: /404/i }
+        );
+
+        expect(heading).toBeInTheDocument();
+    })
 })
