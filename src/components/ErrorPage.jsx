@@ -4,7 +4,7 @@ const ErrorPage = ({ status, message }) => {
     return (
         <>
             <h1 className="main-heading">
-                { status } - Error Message
+                { status } - { message }
             </h1>
         </>
     )
