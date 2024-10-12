@@ -150,4 +150,20 @@ describe("BlogPost", () => {
         expect(loadingHeading).not.toBeInTheDocument();
     })
 
+    it("Only renders error when error", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Blog Title",
+            text: "Blog Text",
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const errorHeading = screen.queryByRole(
+            "heading",
+            { name: /error/i },
+        );
+
+        expect(errorHeading).not.toBeInTheDocument();
+    })
+
 })
