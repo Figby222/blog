@@ -1,3 +1,3 @@
-const BlogPost = "";
+const BlogPost = () => {};
 
 export default BlogPost;
