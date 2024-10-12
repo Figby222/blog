@@ -23,5 +23,18 @@ describe("BlogPost", () => {
     it("Is a function", () => {
         expect(BlogPost).toBeTypeOf("function");
     })
+
+    it("Renders loading if loading", () => {
+        const mockUseAllData = getUseAllDataMock(false, true, null);
+        
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const loadingHeading = screen.queryByRole(
+            "heading",
+            { name: /loading/i },
+        )
+
+        expect(loadingHeading).toBeInTheDocument();
+    })
     
 })
