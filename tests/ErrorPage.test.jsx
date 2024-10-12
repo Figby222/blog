@@ -76,4 +76,12 @@ describe("Error Page", () => {
 
         expect(messageHeading).toBeInTheDocument();
     })
+
+    it("Renders a link", () => {
+        render(<ErrorPage status={404} message={""} />);
+
+        const links = screen.queryAllByRole("link");
+
+        expect(links).toBeGreaterThanOrEqual(1);
+    })
 })
