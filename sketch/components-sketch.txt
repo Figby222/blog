@@ -1,0 +1,5 @@
+ErrorPage
+get error message from props
+get error status from props
+send h1 & paragraph with error status & message
+send link to root
