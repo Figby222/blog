@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
 
-const ErrorPage = "";
+const ErrorPage = () => {};
 
 export default ErrorPage;
