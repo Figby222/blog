@@ -1,3 +1,16 @@
-const Comment = () => {};
+import PropTypes from "prop-types";;;;
+
+const Comment = ({ username, children, timestamp }) => {
+    return (
+        <>
+        </>
+    )
+};
+
+Comment.propTypes = {
+    username: PropTypes.string,
+    timestamp: PropTypes.string.isRequired
+}
+
 
 export default Comment
