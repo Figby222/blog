@@ -1,3 +1,3 @@
-const TextBox = "";
+const TextBox = () => {};
 
 export default TextBox;
