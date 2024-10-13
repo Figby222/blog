@@ -15,4 +15,16 @@ describe("Comment", () => {
     it("Is a function", () => {
         expect(Comment).toBeTypeOf("function");
     })
+
+    it("Has a heading element", () => {
+        render(
+            <Comment username={"quom"} timestamp={`TimeStamp`}>
+                This is a comment
+            </Comment>
+        )
+
+        const headings = screen.queryAllByRole("heading");
+
+        expect(headings.length).toBeGreaterThanOrEqual(1);
+    })
 })
