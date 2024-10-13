@@ -63,4 +63,11 @@ describe("Submitting the form", () => {
         expect(onSubmit).toHaveBeenCalled();
 
     })
+
+    it ("Only calls submitListener when submitted", async () => {
+        const onSubmit = vi.fn(() => {});
+        render(<Form submitListener={onSubmit} submitButtonText={"Submit"}></Form>);
+
+        expect(onSubmit).not.toHaveBeenCalled();
+    })
 })
