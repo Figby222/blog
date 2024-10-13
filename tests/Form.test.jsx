@@ -71,3 +71,22 @@ describe("Submitting the form", () => {
         expect(onSubmit).not.toHaveBeenCalled();
     })
 })
+
+describe("Children", () => {
+    it("Renders child paragraph", () => {
+        render(
+            <Form
+                submitListener={() => {}}
+                submitButtonText={"Submit"}
+            >
+                <p>Form paragraph</p>
+            </Form>
+        );
+
+        const paragraph = screen.queryByText(
+            /Form paragraph/i
+        );
+
+        expect(paragraph).toBeInTheDocument();
+    })
+})
