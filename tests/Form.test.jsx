@@ -33,4 +33,14 @@ describe("Submit button", () => {
 
         expect(submitButton).toBeInTheDocument();
     })
+
+    it("Renders different text", () => {
+        render(<Form submitListener={() => {}} submitButtonText={"Send"}></Form>)
+        const submitButton = screen.queryByRole(
+            "button",
+            { name: /send/i }
+        );
+
+        expect(submitButton).toBeInTheDocument();
+    })
 })
