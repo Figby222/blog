@@ -10,8 +10,7 @@ const Form = ({ submitListener, submitButtonText, children }) => {
     return (
         <>
             <form onSubmit={formSubmitListener}>
-                <p>Form paragraph</p>
-                <h1>Form heading</h1>
+                { children }
                 <button type="submit">{ submitButtonText }</button>
             </form>
         </>
