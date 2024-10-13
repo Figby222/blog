@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 const Form = ({ submitListener, submitButtonText, children }) => {
     return (
         <>
+            <form>
+                <button type="submit"></button>
+            </form>
         </>
     )
 };
