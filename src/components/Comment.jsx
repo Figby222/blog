@@ -4,7 +4,7 @@ const Comment = ({ username, children, timestamp }) => {
     return (
         <>
             <h2 className="username">{ username }</h2>
-            <p className="text">This is a comment</p>
+            <p className="text">{ children }</p>
         </>
     )
 };
