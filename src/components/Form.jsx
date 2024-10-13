@@ -1,6 +1,14 @@
 import PropTypes from "prop-types";
 
 const Form = ({ submitListener, submitButtonText, children }) => {
+    const formSubmitListener = (e) => {
+        e.preventDefault();
+
+        submitListener(e);
+    }
+
+    submitListener();
+
     return (
         <>
             <form>
