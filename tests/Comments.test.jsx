@@ -27,4 +27,16 @@ describe("Comment", () => {
 
         expect(headings.length).toBeGreaterThanOrEqual(1);
     })
+
+    it("Renders username text", () => {
+        render(
+            <Comment username={"quom"} timestamp={`TimeStamp`}>
+                This is a comment
+            </Comment>
+        )
+
+        const username = screen.queryByText(/quom/i);
+
+        expect(username).toBeInTheDocument();
+    })
 })
