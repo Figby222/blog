@@ -41,4 +41,16 @@ describe("TextBox textarea", () => {
         expect(screen.queryByRole("textbox").placeholder)
             .toMatch(/Test Placeholder/i);
     })
+
+    it("Has a different placeholder value", () => {
+        render(<TextBox label={""} placeholder={"A different placeholder"} value={""} onChange={() => {}} /> );
+
+        const textbox = screen.queryByRole("textbox");
+
+        expect(textbox.placeholder)
+            .not.toMatch(/Test Placeholder/i);
+
+        expect(textbox.placeholder)
+            .toMatch(/A different placeholder/i);
+    })
 })
