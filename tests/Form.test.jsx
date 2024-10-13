@@ -89,4 +89,22 @@ describe("Children", () => {
 
         expect(paragraph).toBeInTheDocument();
     })
+
+    it("Renders different children", () => {
+        render(
+            <Form
+                submitListener={() => {}}
+                submitButtonText={"Submit"}
+            >
+                <h1>Form heading</h1>
+            </Form>
+        )
+
+        const heading = screen.queryByRole(
+            "heading",
+            { name: /Form heading/i }
+        );
+
+        expect(heading).toBeInTheDocument();
+    })
 })
