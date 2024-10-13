@@ -4,7 +4,7 @@ const TextBox = ({ label, placeholder, value, onChange }) => {
     return (
         <>
             <label className="textbox-label">
-                Test Label
+                { label }
             </label>
         </>
     )
