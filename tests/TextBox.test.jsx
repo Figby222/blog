@@ -27,3 +27,11 @@ describe("TextBox label", () => {
         expect(screen.queryByText(/A Different Label/i)).toBeInTheDocument();
     })
 })
+
+describe("TextBox textarea", () => {
+    it("Exists", () => {
+        render(<TextBox label={"Test Label"} placeholder={""} value={""} onChange={() => {}} />);
+
+        expect(screen.queryByRole("textbox")).toBeInTheDocument();
+    })
+})
