@@ -39,4 +39,16 @@ describe("Comment", () => {
 
         expect(username).toBeInTheDocument();
     })
+
+    it("Renders a different username", () => {
+        render(
+            <Comment username={"SuperCoolAwesomeUser"} timestamp={`TimeStamp`}>
+                This is a comment
+            </Comment>
+        )
+
+        const username = screen.queryByText(/SuperCoolAwesomeUser/i);
+
+        expect(username).toBeInTheDocument();
+    })
 })
