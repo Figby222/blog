@@ -22,4 +22,15 @@ describe("Submit button", () => {
 
         expect(submitButton.length).toBeGreaterThanOrEqual(1);
     })
+
+    it("Renders given text", () => {
+        render(<Form submitListener={() => {}} submitButtonText={"Submit"}></Form>)
+        
+        const submitButton = screen.queryByRole(
+            "button",
+            { name: /submit/i }
+        );
+
+        expect(submitButton).toBeInTheDocument();
+    })
 })
