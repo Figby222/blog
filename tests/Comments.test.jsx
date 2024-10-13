@@ -11,4 +11,8 @@ describe("Comment", () => {
     it("Exists", () => {
         expect(Comment).toBeDefined();
     })
+
+    it("Is a function", () => {
+        expect(Comment).toBeTypeOf("function");
+    })
 })
