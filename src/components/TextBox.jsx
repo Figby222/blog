@@ -5,7 +5,7 @@ const TextBox = ({ label, placeholder, value, onChange }) => {
         <>
             <label className="textbox-label">
                 { label }
-                <textarea className="new-comment-text" placeholder="Test placeholder"></textarea>
+                <textarea className="new-comment-text" placeholder={placeholder}></textarea>
             </label>
         </>
     )
