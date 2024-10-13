@@ -12,3 +12,14 @@ describe("Form existence", () => {
         expect(Form).toBeTypeOf("function");
     })
 })
+
+describe("Submit button", () => {
+    it("Exists", () => {
+        render(<Form submitListener={() => {}} submitButtonText={""}></Form>)
+
+        const submitButton = screen.queryAllByRole("button");
+
+
+        expect(submitButton.length).toBeGreaterThanOrEqual(1);
+    })
+})
