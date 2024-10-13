@@ -1,7 +1,8 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { screen } from "@testing-library/react";
 import { render } from "../lib/testing-utils.jsx";
 import Form from "../src/components/Form.jsx";
+import userEvent from "@testing-library/user-event";
 
 describe("Form existence", () => {
     it("Exists", () =>  {
@@ -42,5 +43,24 @@ describe("Submit button", () => {
         );
 
         expect(submitButton).toBeInTheDocument();
+    })
+})
+
+describe("Submitting the form", () => {
+    it("Calls submitListener when submitted", async () => {
+        const onSubmit = vi.fn(() => {})
+        render(<Form submitListener={onSubmit} submitButtonText={"Submit"}></Form>)
+
+        const user = userEvent.setup();
+
+        const submitButton = screen.getByRole(
+            "button",
+            { name: /submit/i }
+        );
+
+        await user.click(submitButton);
+
+        expect(onSubmit).toHaveBeenCalled();
+
     })
 })
