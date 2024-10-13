@@ -7,4 +7,8 @@ describe("Form existence", () => {
     it("Exists", () =>  {
         expect(Form).toBeDefined();
     })
+    
+    it("Is a function", () => {
+        expect(Form).toBeTypeOf("function");
+    })
 })
