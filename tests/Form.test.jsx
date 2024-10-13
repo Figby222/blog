@@ -107,4 +107,18 @@ describe("Children", () => {
 
         expect(heading).toBeInTheDocument();
     })
+
+    it("Only renders provided children", () => {
+        render(
+            <Form
+                submitListener={() => {}}
+                submitButtonText={"Submit"}>
+                <p>Different paragraph</p>
+            </Form>
+        )
+        const formParagraph = screen.queryByText(/Form paragraph/i);
+        const differentParagraph = screen.queryByText(/Different Paragraph/i);
+        expect(formParagraph).not.toBeInTheDocument();
+        expect(differentParagraph).toBeInTheDocument();
+    })
 })
