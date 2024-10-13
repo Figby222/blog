@@ -85,4 +85,16 @@ describe("Comment", () => {
 
         expect(timestamp).toBeInTheDocument();
     })
+
+    it("Renders a different timestamp", () => {
+        render(
+            <Comment username={"quom"} timestamp={`A different TimeStamp`}>
+                This is a comment
+            </Comment>
+        )
+
+        const timestamp = screen.queryByText(/A different TimeStamp/i);
+
+        expect(timestamp).toBeInTheDocument();
+    })
 })
