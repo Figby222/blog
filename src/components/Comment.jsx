@@ -3,6 +3,7 @@ import PropTypes from "prop-types";;;;
 const Comment = ({ username, children, timestamp }) => {
     return (
         <>
+            <h2 className="username"></h2>
         </>
     )
 };
