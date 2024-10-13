@@ -4,7 +4,7 @@ const Form = ({ submitListener, submitButtonText, children }) => {
     return (
         <>
             <form>
-                <button type="submit"></button>
+                <button type="submit">Submit</button>
             </form>
         </>
     )
