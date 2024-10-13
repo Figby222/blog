@@ -61,4 +61,16 @@ describe("Comment", () => {
 
         expect(screen.queryByText(/This is a comment/i)).toBeInTheDocument();
     })
+
+    it("Renders different comment text", () => {
+        render(
+            <Comment username={"quom"} timestamp={`TimeStamp`}>
+                Some different comment text
+            </Comment>
+        )
+
+        const text = screen.queryByText(/Some different comment text/i);
+
+        expect(text).toBeInTheDocument();
+    })
 })
