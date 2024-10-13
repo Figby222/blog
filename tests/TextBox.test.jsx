@@ -12,3 +12,11 @@ describe("TextBox existence", () => {
         expect(TextBox).toBeTypeOf("function");
     })
 })
+
+describe("TextBox label", () => {
+    it("Exists", () => {
+        render(<TextBox label={"Test Label"} placeholder={""} value={""} onChange={() => {}} />)
+
+        expect(screen.queryByText(/Test Label/i)).toBeInTheDocument();
+    })
+})
