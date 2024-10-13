@@ -19,4 +19,11 @@ describe("TextBox label", () => {
 
         expect(screen.queryByText(/Test Label/i)).toBeInTheDocument();
     })
+
+    it("Renders a different value", () => {
+        render(<TextBox label={"A Different Label"} placeholder={""} value={""} onChange={() => {}} />)
+
+        expect(screen.queryByText(/Test Label/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/A Different Label/i)).toBeInTheDocument();
+    })
 })
