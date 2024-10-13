@@ -73,4 +73,16 @@ describe("Comment", () => {
 
         expect(text).toBeInTheDocument();
     })
+
+    it("Renders timestamp text content", () => {
+        render(
+            <Comment username={"quom"} timestamp={`TimeStamp`}>
+                This is a comment
+            </Comment>
+        )
+
+        const timestamp = screen.queryByText(/TimeStamp/i);
+
+        expect(timestamp).toBeInTheDocument();
+    })
 })
