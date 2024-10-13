@@ -7,4 +7,8 @@ describe("TextBox existence", () => {
     it("Exists", () => {
         expect(TextBox).toBeDefined();
     })
+
+    it("Is a function", () => {
+        expect(TextBox).toBeTypeOf("function");
+    })
 })
