@@ -9,6 +9,7 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
+            <h2 className="blog-title">Test Blog Title</h2>
         </>
     )
 };
