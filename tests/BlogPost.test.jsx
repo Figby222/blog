@@ -297,3 +297,18 @@ describe("BlogPost", () => {
     })
 
 })
+
+describe("New comment", () => {
+    it("Renders a textbox for a new comment", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        })
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        expect(screen.queryByRole("textbox"))
+            .toBeInTheDocument();
+    })
+})
