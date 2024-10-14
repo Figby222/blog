@@ -38,6 +38,7 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            comments: [],
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
@@ -51,6 +52,7 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            comments: [],
         })
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
@@ -66,7 +68,8 @@ describe("BlogPost", () => {
     it("Renders paragraph", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
-            text: "Blog Text"
+            text: "Blog Text",
+            comments: []
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />)
@@ -79,7 +82,8 @@ describe("BlogPost", () => {
     it("Renders paragraph with correct text", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
-            text: "Blog Text"
+            text: "Blog Text",
+            comments: []
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
@@ -105,7 +109,8 @@ describe("BlogPost", () => {
     it("Renders a different title", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "A different title",
-            text: "Different text"
+            text: "Different text",
+            comments: []
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
@@ -121,7 +126,8 @@ describe("BlogPost", () => {
     it("Renders different text", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "A different title",
-            text: "Different text"
+            text: "Different text",
+            comments: []
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
@@ -135,6 +141,7 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            comments: [],
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
@@ -148,6 +155,7 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            comments: [],
         });
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} />);
