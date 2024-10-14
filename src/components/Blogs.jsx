@@ -5,9 +5,11 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
+            <h1 className="loading">Loading...</h1>
         </>
     )
 };
+
 
 Blogs.PropTypes = {
     useAllData: PropTypes.func.isRequired
