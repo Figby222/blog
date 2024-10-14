@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 
 const TextBox = ({ label, placeholder, value, onChange }) => {
-    onChange("Test Text");
-
     return (
         <>
             <label className="textbox-label">
                 { label }
-                <textarea className="new-comment-text" placeholder={placeholder}>{ value }</textarea>
+                <textarea 
+                className="new-comment-text" 
+                placeholder={placeholder}
+                onChange={(e) => onChange(e.target.value)}>{ value }</textarea>
             </label>
         </>
     )
