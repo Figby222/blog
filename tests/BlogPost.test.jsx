@@ -368,3 +368,18 @@ describe("New comment", () => {
             .toMatch(/Different Test Textbox Value/i);
     })
 })
+
+describe("New Comment Submit Button", () => {
+    it("Exists", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        expect(screen.queryByRole("button", { name: /Comment/i }))
+            .toBeInTheDocument();
+    })
+})
