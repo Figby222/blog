@@ -5,13 +5,12 @@ import { useState } from "react";
 import Form from "./Form.jsx";
 
 
-const NewCommentForm = ({ postId }) => {
+const NewCommentForm = ({ postId, createComment }) => {
     const [ textBoxValue, setTextBoxValue ] = useState("");
-
     return (
         <>
             <Form 
-            submitListener={() => {}} 
+            submitListener={() => createComment(postId, textBoxValue)} 
             submitButtonText={"Comment"}>
                 <TextBox label={""} placeholder={"New Comment..."} value={textBoxValue} onChange={setTextBoxValue} />
             </Form>
@@ -21,11 +20,11 @@ const NewCommentForm = ({ postId }) => {
 
 NewCommentForm.propTypes = {
     postId: PropTypes.number.isRequired,
+    createComment: PropTypes.func.isRequired,
 }
 
-const BlogPost = ({ useAllData, postId }) => {
+const BlogPost = ({ useAllData, postId, createComment }) => {
     const { error, loading, data } = useAllData();
-    console.log(data);
 
     if(error) {
         return (<h1 className="error">An error has occurred</h1>)
@@ -39,7 +38,7 @@ const BlogPost = ({ useAllData, postId }) => {
             </main>
             <section className="comments" aria-label="comments">
                 <h2 className="comments-heading">Comments</h2>
-                <NewCommentForm postId={postId} />
+                <NewCommentForm postId={postId} createComment={createComment} />
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
@@ -58,7 +57,8 @@ const BlogPost = ({ useAllData, postId }) => {
 
 BlogPost.propTypes = {
     useAllData: PropTypes.func.isRequired,
-    postId: PropTypes.number.isRequired
+    postId: PropTypes.number.isRequired,
+    createComment: PropTypes.func.isRequired,
 }
 
 export default BlogPost;
