@@ -1,6 +1,7 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { screen } from "@testing-library/react";
 import { render } from "../lib/testing-utils.jsx";
+import userEvent from "@testing-library/user-event";
 import TextBox from "../src/components/TextBox.jsx";
 
 describe("TextBox existence", () => {
@@ -68,5 +69,18 @@ describe("TextBox textarea", () => {
 
         expect(textbox.value).not.toMatch(/Test Value/i);
         expect(textbox.value).toMatch(/A different value/i);
+    })
+
+    it("Calls onChange on change", async () => {
+        const onChange = vi.fn(() => {});
+        render(<TextBox label={""} placeholder={""} value={""} onChange={onChange} />);
+
+        const user = userEvent.setup();
+
+        const textbox = screen.queryByRole("textbox");
+
+        await user.type(textbox, "Test Text");
+
+        expect(onChange).toHaveBeenCalled();
     })
 })
