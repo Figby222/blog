@@ -382,4 +382,25 @@ describe("New Comment Submit Button", () => {
         expect(screen.queryByRole("button", { name: /Comment/i }))
             .toBeInTheDocument();
     })
+    
+    it("Calls useAllData", async() => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        });
+        const mockCreateComment = vi.fn(() => {})
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} createComment={mockCreateComment} />);
+
+        const textbox = screen.queryByRole("textbox");
+        const submitButton = screen.queryByRole("button",
+            { name: /Comment/i }
+        );
+        const user = userEvent.setup();
+        await user.type(textbox, "Test Text");
+        await user.click(submitButton);
+
+        expect(mockCreateComment).toHaveBeenCalledWith(4, "Test Text");
+    })
 })
