@@ -12,8 +12,16 @@ const Blogs = ({ useAllData }) => {
         {
             data &&
             <>
-            <p className="username">{ data.blogs[0].username }</p>
-            <h2 className="blog-title">{ data.blogs[0].title }</h2>
+            <section className="blogs">
+                <ul className="blogs-list" aria-label="blogs">
+                    { data.blogs.map((blog) => {
+                        return <li className="blog" key={blog.id}>
+                            <p className="username">{ blog.username }</p>
+                            <h2 className="blog-title">{ blog.title }</h2>
+                        </li>
+                    })}
+                </ul>
+            </section>
             </>
 
         }
