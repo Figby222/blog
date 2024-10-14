@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Comment from "./Comment.jsx";
 
 const BlogPost = ({ useAllData, postId }) => {
     const { error, loading, data } = useAllData();
@@ -14,6 +15,9 @@ const BlogPost = ({ useAllData, postId }) => {
                 <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
                 <p className="blog-text">{ data && data.text || "Loading..."}</p>
             </main>
+            <Comment username={"Test Comment Username"} timestamp={"Test Timestamp"}>
+                Test Comment Text
+            </Comment>
         </>
     )
 };
