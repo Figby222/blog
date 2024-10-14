@@ -33,9 +33,13 @@ describe("useAllData", () => {
 
     it("Doesn't show loading if not loading", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
-            id: 4,
-            title: "Test Blog Title",
-            username: "Test Blog Username"
+            blogs: [
+                {
+                    id: 4,
+                    title: "Test Blog Title",
+                    username: "Test Blog Username"
+                }
+            ]
         });
 
         render(<Blogs useAllData={mockUseAllData} />);
