@@ -122,4 +122,35 @@ describe("Blog list", () => {
         expect(screen.queryByText(/Test Different Blog Username/i))
             .toBeInTheDocument();
     })
+
+    it("Renders multiple Blog Items", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: [
+                {
+                    id: 4,
+                    title: "Test Blog Title",
+                    username: "Test Blog Username"
+                },
+                {
+                    id: 4,
+                    title: "Test Different Blog Title",
+                    username: "Test Different Blog Username"
+                }
+            ]
+        })
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByText(/Test Blog Title/i))
+            .toBeInTheDocument();
+        
+            expect(screen.queryByText(/Test Blog Username/i))
+                .toBeInTheDocument();
+
+                expect(screen.queryByText(/Test Different Blog Title/i))
+                    .toBeInTheDocument();
+
+                    expect(screen.queryByText(/Test Different Blog Username/i))
+                        .toBeInTheDocument();
+    })
 })
