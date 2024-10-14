@@ -186,4 +186,40 @@ describe("BlogPost", () => {
             .toBeInTheDocument();
     })
 
+    it("Renders a different comment", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: [
+                {
+                    id: 5,
+                    creator: "A different username",
+                    text: "Different Comment Text",
+                    timestamp: "A different TimeStamp",
+                }
+            ]
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        expect(screen.queryByText(/Test Comment Username/i))
+            .not.toBeInTheDocument();
+
+        expect(screen.queryByText(/Text Comment Text/i))
+            .not.toBeInTheDocument();
+
+        expect(screen.queryByText(/Test Timestamp/i))
+            .not.toBeInTheDocument();
+
+        expect(screen.queryByText(/A different username/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/Different Comment Text/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/A different TimeStamp/i))
+            .toBeInTheDocument();
+            
+    })
+
 })
