@@ -18,7 +18,7 @@ const BlogPost = ({ useAllData, postId }) => {
             </main>
             <section className="comments" aria-label="comments">
                 <h2 className="comments-heading">Comments</h2>
-                <TextBox label={""} placeholder={"New Comment..."} value={""} onChange={() => {}} />
+                <TextBox label={""} placeholder={"New Comment..."} value={"Test Textbox Text"} onChange={() => {}} />
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
