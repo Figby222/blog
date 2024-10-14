@@ -102,4 +102,24 @@ describe("Blog list", () => {
         expect(screen.queryByText(/Test Blog Username/i))
             .toBeInTheDocument();
     })
+
+    it("Renders different username text", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: [
+                {
+                    id: 4,
+                    title: "Test Blog Title",
+                    username: "Test Different Blog Username"
+                }
+            ]
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByText(/Test Blog Username/i))
+            .not.toBeInTheDocument();
+
+        expect(screen.queryByText(/Test Different Blog Username/i))
+            .toBeInTheDocument();
+    })
 })
