@@ -30,4 +30,17 @@ describe("useAllData", () => {
         expect(screen.queryByText(/Loading/i))
             .toBeInTheDocument();
     })
+
+    it("Doesn't show loading if not loading", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            id: 4,
+            title: "Test Blog Title",
+            username: "Test Blog Username"
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByText(/Loading/i))
+            .not.toBeInTheDocument();
+    })
 })
