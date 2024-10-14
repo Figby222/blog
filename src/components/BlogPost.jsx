@@ -1,6 +1,22 @@
 import PropTypes from "prop-types";
 import Comment from "./Comment.jsx";
 import TextBox from "./TextBox.jsx";
+import { useState } from "react";
+
+
+const NewCommentForm = ({ postId }) => {
+    const [ textBoxValue, setTextBoxValue ] = useState("");
+
+    return (
+        <>
+            <TextBox label={""} placeholder={"New Comment..."} value={textBoxValue} onChange={setTextBoxValue} />
+        </>
+    )
+}
+
+NewCommentForm.propTypes = {
+    postId: PropTypes.number.isRequired,
+}
 
 const BlogPost = ({ useAllData, postId }) => {
     const { error, loading, data } = useAllData();
@@ -18,7 +34,7 @@ const BlogPost = ({ useAllData, postId }) => {
             </main>
             <section className="comments" aria-label="comments">
                 <h2 className="comments-heading">Comments</h2>
-                <TextBox label={""} placeholder={"New Comment..."} value={"Test Textbox Text"} onChange={() => {}} />
+                <NewCommentForm postId={postId} />
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
