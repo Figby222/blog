@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 
 const Blogs = ({ useAllData }) => {
+    const { error, loading, data } = useAllData();
+
     return (
         <>
         </>
