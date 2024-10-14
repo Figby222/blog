@@ -15,9 +15,11 @@ const BlogPost = ({ useAllData, postId }) => {
                 <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
                 <p className="blog-text">{ data && data.text || "Loading..."}</p>
             </main>
-            <Comment username={"Test Comment Username"} timestamp={"Test Timestamp"}>
-                Test Comment Text
-            </Comment>
+            { data.comments.length >= 1 && 
+                <Comment username={data.comments[0].creator} timestamp={data.comments[0].timestamp}>
+                    { data.comments[0].text }
+                </Comment>
+            }
         </>
     )
 };
