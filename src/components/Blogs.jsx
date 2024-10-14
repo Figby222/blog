@@ -1,3 +1,3 @@
-const Blogs = "";
+const Blogs = () => {};
 
 export default Blogs;
