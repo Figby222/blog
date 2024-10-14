@@ -7,4 +7,8 @@ describe("Blogs existence", () => {
     it("Exists", () => {
         expect(Blogs).toBeDefined();
     })
+
+    it("Is a function", () => {
+        expect(Blogs).toBeTypeOf("function");
+    })
 })
