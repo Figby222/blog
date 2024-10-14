@@ -9,7 +9,11 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
-            <h2 className="blog-title">Test Blog Title</h2>
+        {
+            data &&
+            <h2 className="blog-title">{ data.blogs[0].title }</h2>
+
+        }
         </>
     )
 };
