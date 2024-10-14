@@ -311,4 +311,17 @@ describe("New comment", () => {
         expect(screen.queryByRole("textbox"))
             .toBeInTheDocument();
     })
+
+    it("Has new comment placeholder", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        })
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        expect(screen.queryByRole("textbox").placeholder)
+            .toMatch(/New Comment/i);
+    })
 })
