@@ -21,4 +21,13 @@ describe("useAllData", () => {
 
         expect(mockUseAllData).toHaveBeenCalled();
     })
+
+    it("Shows loading if loading", () => {
+        const mockUseAllData = getUseAllDataMock(false, true, null);
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByText(/Loading/i))
+            .toBeInTheDocument();
+    })
 })
