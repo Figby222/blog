@@ -230,4 +230,45 @@ describe("BlogPost", () => {
             
     })
 
+    it("Renders multiple comments", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: [
+                {
+                    id: 4,
+                    creator: "Test Comment Username",
+                    text: "Test Comment Text",
+                    timestamp: "Test TimeStamp",
+                },
+                {
+                    id: 5,
+                    creator: "A different username",
+                    text: "Different Comment Text",
+                    timestamp: "A different TimeStamp",
+                }
+            ]
+        });
+        
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        expect(screen.queryByText(/Test Comment Username/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/Test Comment Text/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/Test Timestamp/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/A different username/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/Different Comment Text/i))
+            .toBeInTheDocument();
+
+        expect(screen.queryByText(/A different TimeStamp/i))
+            .toBeInTheDocument();
+    })
+
 })
