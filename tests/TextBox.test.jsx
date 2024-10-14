@@ -60,4 +60,13 @@ describe("TextBox textarea", () => {
         expect(screen.queryByRole("textbox").value)
             .toMatch(/Test Value/i);
     })
+
+    it("Has a different value", () => {
+        render(<TextBox label={""} placeholder={""} value={"A different value"} onChange={() => {}} />);
+
+        const textbox = screen.queryByRole("textbox");
+
+        expect(textbox.value).not.toMatch(/Test Value/i);
+        expect(textbox.value).toMatch(/A different value/i);
+    })
 })
