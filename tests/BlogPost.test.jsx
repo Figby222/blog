@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { screen, render as _render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import BlogPost from "../src/components/BlogPost.jsx";
+import userEvent from "@testing-library/user-event";
 
 const render = (component) => {
     return _render(<MemoryRouter>
@@ -323,5 +324,25 @@ describe("New comment", () => {
 
         expect(screen.queryByRole("textbox").placeholder)
             .toMatch(/New Comment/i);
+    })
+
+    it("Has the correct value typed in", async () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        })
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const textbox = screen.queryByRole("textbox");
+
+
+        const user = userEvent.setup();
+
+        await user.type(textbox, "Test Textbox Text");
+
+        expect(textbox.textContent)
+            .toMatch(/Test Textbox Text/i);
     })
 })
