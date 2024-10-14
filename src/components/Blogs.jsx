@@ -14,7 +14,7 @@ const Blogs = ({ useAllData }) => {
 };
 
 
-Blogs.PropTypes = {
+Blogs.propTypes = {
     useAllData: PropTypes.func.isRequired
 }
 
