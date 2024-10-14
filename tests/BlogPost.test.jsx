@@ -342,7 +342,7 @@ describe("New comment", () => {
 
         await user.type(textbox, "Test Textbox Text");
 
-        expect(textbox.textContent)
+        expect(textbox.value)
             .toMatch(/Test Textbox Text/i);
     })
 
@@ -361,10 +361,10 @@ describe("New comment", () => {
 
         await user.type(textbox, "Different Test Textbox Value");
 
-        expect(textbox.textContent)
+        expect(textbox.value)
             .not.toMatch(/Test Textbox Text/i);
 
-        expect(textbox.textContent)
+        expect(textbox.value)
             .toMatch(/Different Test Textbox Value/i);
     })
 })
