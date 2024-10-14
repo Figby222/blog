@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
 const TextBox = ({ label, placeholder, value, onChange }) => {
-    onChange();
-    
+    onChange("Test Text");
+
     return (
         <>
             <label className="textbox-label">
