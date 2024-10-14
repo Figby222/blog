@@ -83,4 +83,17 @@ describe("TextBox textarea", () => {
 
         expect(onChange).toHaveBeenCalled();
     })
+
+    it("Calls onChange with value", async () => {
+        const onChange = vi.fn(() => {});
+        render(<TextBox label={""} placeholder={""} value={""} onChange={onChange} />);
+
+        const user = userEvent.setup();
+
+        const textbox = screen.queryByRole("textbox");
+
+        await user.type(textbox, "Test Text");
+
+        expect(onChange).toHaveBeenCalledWith("Test Text");
+    })
 })
