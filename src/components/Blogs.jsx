@@ -11,7 +11,10 @@ const Blogs = ({ useAllData }) => {
         <>
         {
             data &&
+            <>
+            <p className="username">Test Blog Username</p>
             <h2 className="blog-title">{ data.blogs[0].title }</h2>
+            </>
 
         }
         </>
