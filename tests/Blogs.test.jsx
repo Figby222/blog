@@ -44,3 +44,21 @@ describe("useAllData", () => {
             .not.toBeInTheDocument();
     })
 })
+
+describe("Blog list", () => {
+    it("Renders a Blog Title", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: [
+                {
+                    id: 4,
+                    title: "Test Blog Title",
+                    username: "Test Blog Username"     
+                }
+            ]
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByText(/Test Blog Title/i)).toBeInTheDocument();
+    })
+})
