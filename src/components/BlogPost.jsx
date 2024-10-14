@@ -16,6 +16,7 @@ const BlogPost = ({ useAllData, postId }) => {
                 <p className="blog-text">{ data && data.text || "Loading..."}</p>
             </main>
             <section className="comments" aria-label="comments">
+                <h2 className="comments-heading">Comments</h2>
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
