@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { screen, render as _render } from "@testing-library/react";
+import { screen, render as _render, act } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import BlogPost from "../src/components/BlogPost.jsx";
 import userEvent from "@testing-library/user-event";
@@ -344,5 +344,27 @@ describe("New comment", () => {
 
         expect(textbox.textContent)
             .toMatch(/Test Textbox Text/i);
+    })
+
+    it("Has different value typed in", async () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        });
+
+        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+
+        const textbox = screen.queryByRole("textbox");
+
+        const user = userEvent.setup();
+
+        await user.type(textbox, "Different Test Textbox Value");
+
+        expect(textbox.textContent)
+            .not.toMatch(/Test Textbox Text/i);
+
+        expect(textbox.textContent)
+            .toMatch(/Different Test Textbox Value/i);
     })
 })
