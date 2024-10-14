@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Comment from "./Comment.jsx";
 import TextBox from "./TextBox.jsx";
 import { useState } from "react";
+import Form from "./Form.jsx";
 
 
 const NewCommentForm = ({ postId }) => {
@@ -9,7 +10,11 @@ const NewCommentForm = ({ postId }) => {
 
     return (
         <>
-            <TextBox label={""} placeholder={"New Comment..."} value={textBoxValue} onChange={setTextBoxValue} />
+            <Form 
+            submitListener={() => {}} 
+            submitButtonText={"Comment"}>
+                <TextBox label={""} placeholder={"New Comment..."} value={textBoxValue} onChange={setTextBoxValue} />
+            </Form>
         </>
     )
 }
