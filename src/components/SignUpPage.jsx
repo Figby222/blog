@@ -3,10 +3,10 @@ import Form from "./Form.jsx";
 
 const SignUpPage = ({ createAnAccount }) => {
 
-    
+
     return (
         <>
-            <Form submitListener={() => createAnAccount()} submitButtonText={"Submit"}>
+            <Form submitListener={() => createAnAccount("testUsername", "testPassword4444", "testPassword4444")} submitButtonText={"Submit"}>
                 <label htmlFor="username" className="username">
                     Username
                     <input type="text" name="username" id="username" />
