@@ -11,12 +11,18 @@ const SignUpPage = ({ createAnAccount }) => {
     const handleFormSubmission = async (username, password, confirmPassword) => {
         const response = await createAnAccount(username, password, confirmPassword);
         
-        response && response.errors && setErrors(response.errors[0]);
+        response.errors && setErrors(response.errors);
     }
 
     return (
         <>
-            <p className="username-error">{ errors && errors.message }</p>
+            <ul className="Errors">
+                { errors && errors.map((error) => {
+                    return <li className="error" key={error.message}>
+                        { error.message }
+                    </li>
+                })}
+            </ul>
             <Form submitListener={() => handleFormSubmission(username, password, confirmPassword)} submitButtonText={"Submit"}>
                 <label htmlFor="username" className="username">
                     Username
