@@ -11,6 +11,7 @@ const SignUpPage = ({ createAnAccount }) => {
                 Password
                 <input type="password" name="password" id="password" />
             </label>
+            <p className="confirm-password">Confirm Password</p>
         </>
     )
 };
