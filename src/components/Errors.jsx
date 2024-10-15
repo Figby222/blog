@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 const Errors = ({ errors }) => {
     return (
         <>
-            <p className="errors">{ errors[0].message }</p>
+            <ul className="errors">
+                { errors.map((error) => {
+                    return <li className="error" key={error.message}>
+                        { error.message }
+                    </li>
+                })}
+            </ul>
         </>
     )
 };
