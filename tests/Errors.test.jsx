@@ -29,4 +29,13 @@ describe("Errors list", () => {
         expect(screen.queryByText(/Test Different Error Message/i))
             .toBeInTheDocument();
     })
+
+    it("Renders multiple error messages", () => {
+        render(<Errors errors={[ { field: "Test Field", message: "Test Error Message" }, { field: "Test Field", message: "Test Different Error Message" }]} />);
+
+        expect(screen.queryByText(/Test Error Message/i))
+            .toBeInTheDocument();
+            expect(screen.queryByText(/Test Different Error Message/i))
+                .toBeInTheDocument();
+    })
 })
