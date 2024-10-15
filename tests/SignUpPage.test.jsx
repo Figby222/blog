@@ -85,4 +85,21 @@ describe("Submitting the form with valid credentials", () => {
         expect(onSubmit)
             .toHaveBeenCalled();
     })
+
+    it("Doesn't call createAnAccount when not submitted", async () => {
+        const onSubmit = vi.fn(() => {});
+        render(<SignUpPage createAnAccount={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testUsername");
+        await user.type(passwordInput, "testPassword4444");
+        await user.type(confirmPasswordInput, "testPassword4444");
+
+        expect(onSubmit).not.toHaveBeenCalled();
+    })
 })
