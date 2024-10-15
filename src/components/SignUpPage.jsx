@@ -6,11 +6,18 @@ const SignUpPage = ({ createAnAccount }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ confirmPassword, setConfirmPassword ] = useState("");
+    const [ errors, setErrors ] = useState([]);
+
+    const handleFormSubmission = async (username, password, confirmPassword) => {
+        const response = await createAnAccount(username, password, confirmPassword);
+        
+        response && response.errors && setErrors(response.errors[0]);
+    }
 
     return (
         <>
-            <p className="username-error">Test Username Error</p>
-            <Form submitListener={() => createAnAccount(username, password, confirmPassword)} submitButtonText={"Submit"}>
+            <p className="username-error">{ errors && errors.message }</p>
+            <Form submitListener={() => handleFormSubmission(username, password, confirmPassword)} submitButtonText={"Submit"}>
                 <label htmlFor="username" className="username">
                     Username
                     <input type="text" name="username" id="username" 
