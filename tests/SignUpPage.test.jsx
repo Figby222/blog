@@ -29,4 +29,10 @@ describe("Password", () => {
         render(<SignUpPage createAnAccount={() => {}} />);
         expect(screen.queryByText(/Password/i)).toBeInTheDocument();
     })
+
+    it("Is has an input", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+        
+        expect(screen.queryByLabelText(/Password/i)).toBeInTheDocument();
+    })
 })
