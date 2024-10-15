@@ -65,6 +65,21 @@ describe("Submit Button", () => {
 })
 
 describe("Submitting the form with valid credentials", () => {
+    const setup = async (userDetails, component) => {
+        render(<>{ component }</>);
+        
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, userDetails.username);
+        await user.type(passwordInput, userDetails.password);
+        await user.type(confirmPasswordInput, userDetails.password);
+        await user.click(submitButton);
+    }
     it("Calls createAnAccount", async () => {
         const onSubmit = vi.fn(() => {})
         render(<SignUpPage createAnAccount={onSubmit} />);
@@ -101,5 +116,26 @@ describe("Submitting the form with valid credentials", () => {
         await user.type(confirmPasswordInput, "testPassword4444");
 
         expect(onSubmit).not.toHaveBeenCalled();
+    })
+
+    it("Calls createAnAccount with form details", async () => {
+        const onSubmit = vi.fn(() => {});
+
+        render(<SignUpPage createAnAccount={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testUsername");
+        await user.type(passwordInput, "testPassword4444");
+        await user.type(confirmPasswordInput, "testPassword4444");
+
+        await user.click(submitButton);
+
+        expect(onSubmit).toHaveBeenCalledWith("testUsername", "testPassword4444", "testPassword4444");
     })
 })
