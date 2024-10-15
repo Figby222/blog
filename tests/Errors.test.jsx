@@ -12,3 +12,12 @@ describe("Errors existence", () => {
         expect(Errors).toBeTypeOf("function");
     })
 })
+
+describe("Errors list", () => {
+    it("Renders an error message", () => {
+        render(<Errors errors={[ { field: "Test Field", message: "Test Error Message"}]} />);
+
+        expect(screen.queryByText(/Test Error Message/i))
+            .toBeInTheDocument();
+    })
+})
