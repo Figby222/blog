@@ -7,6 +7,7 @@ const SignUpPage = ({ createAnAccount }) => {
                 Username
                 <input type="text" name="username" id="username" />
             </label>
+            <p className="password">Password</p>
         </>
     )
 };
