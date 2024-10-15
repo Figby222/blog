@@ -21,4 +21,12 @@ describe("Errors list", () => {
             .toBeInTheDocument();
     })
     
+    it("Renders a different error message", () => {
+        render(<Errors errors= {[ { field: "Test Field", message: "Test Different Error Message" }]} />);
+
+        expect(screen.queryByText(/Test Error Message/i))
+            .not.toBeInTheDocument();
+        expect(screen.queryByText(/Test Different Error Message/i))
+            .toBeInTheDocument();
+    })
 })
