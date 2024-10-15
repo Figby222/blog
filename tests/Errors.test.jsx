@@ -7,4 +7,8 @@ describe("Errors existence", () => {
     it("Exists", () => {
         expect(Errors).toBeDefined();
     })
+
+    it("Is a function", () => {
+        expect(Errors).toBeTypeOf("function");
+    })
 })
