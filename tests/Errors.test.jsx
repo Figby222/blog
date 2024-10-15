@@ -20,4 +20,5 @@ describe("Errors list", () => {
         expect(screen.queryByText(/Test Error Message/i))
             .toBeInTheDocument();
     })
+    
 })

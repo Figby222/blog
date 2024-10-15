@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 const Errors = ({ errors }) => {
     return (
         <>
+            <p className="errors">Test Error Message</p>
         </>
     )
 };
