@@ -49,3 +49,11 @@ describe("Confirm Password", () => {
         expect(screen.queryByLabelText(/Confirm Password/i)).toBeInTheDocument();
     })
 })
+
+describe("Submit Button", () => {
+    it("Exists", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+        expect(screen.queryByRole("button"))
+            .toBeInTheDocument();
+    })
+})
