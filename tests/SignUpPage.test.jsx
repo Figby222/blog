@@ -36,3 +36,10 @@ describe("Password", () => {
         expect(screen.queryByLabelText(/Password/i)).toBeInTheDocument();
     })
 })
+
+describe("Confirm Password", () => {
+    it("Exists", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+        expect(screen.queryByText(/Confirm Password/i)).toBeInTheDocument();
+    })
+})
