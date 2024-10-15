@@ -194,4 +194,39 @@ describe("Errors", () => {
         expect(screen.queryByText(/Test Username Error/i))
             .toBeInTheDocument();
     })
+
+    it("Shows a different username error", async () => {
+        const onSubmit = vi.fn(() => {
+            return {
+                errors: [
+                    {
+                        field: "username",
+                        message: "Test Different Username Error"
+                    }
+                ]
+            }
+        })
+
+        render(<SignUpPage createAnAccount={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testErrorUsername");
+        await user.type(passwordInput, "testPassword4444");
+        await user.type(confirmPasswordInput, "testPassword4444");
+
+        await user.click(submitButton);
+
+        expect(screen.queryByText(/Test Username Error/i))
+            .not.toBeInTheDocument();
+        expect(screen.queryByText(/Test Different Username Error/i))
+            .toBeInTheDocument();
+    })
+
+
 })
