@@ -16,4 +16,10 @@ describe("Username", () => {
         render(<SignUpPage createAnAccount={() => {}} />);
         expect(screen.queryByText(/Username/i)).toBeInTheDocument();
     })
+
+    it("Is has an input", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+
+        expect(screen.queryByLabelText(/Username/i)).toBeInTheDocument();
+    })
 })
