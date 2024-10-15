@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Form from "./Form.jsx";
 import { useState } from "react";
+import Errors from "./Errors.jsx"
 
 const SignUpPage = ({ createAnAccount }) => {
     const [ username, setUsername ] = useState("");
@@ -17,11 +18,9 @@ const SignUpPage = ({ createAnAccount }) => {
     return (
         <>
             <ul className="Errors">
-                { errors && errors.map((error) => {
-                    return <li className="error" key={error.message}>
-                        { error.message }
-                    </li>
-                })}
+                { errors && 
+                    <Errors errors={errors} />
+                }
             </ul>
             <Form submitListener={() => handleFormSubmission(username, password, confirmPassword)} submitButtonText={"Submit"}>
                 <label htmlFor="username" className="username">
