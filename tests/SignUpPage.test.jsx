@@ -45,7 +45,7 @@ describe("Confirm Password", () => {
     })
 
     it("Is has an input", () => {
-        render(<SignUpPage createAnnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => {}} />);
 
         expect(screen.queryByLabelText(/Confirm Password/i)).toBeInTheDocument();
     })
