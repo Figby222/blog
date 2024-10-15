@@ -228,5 +228,26 @@ describe("Errors", () => {
             .toBeInTheDocument();
     })
 
+    it("Only shows error on error", async () => {
+        const onSubmit = vi.fn(() => {});
+        render(<SignUpPage createAnAccount={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testNotTakenUsername");
+        await user.type(passwordInput, "testDifferentPassword4444");
+        await user.type(confirmPasswordInput, "testDifferentPassword4444");
+
+        await user.click(submitButton);
+
+        expect(screen.queryByText(/That username is unavailable/i))
+            .not.toBeInTheDocument();
+    })
+
 
 })
