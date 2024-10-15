@@ -1,3 +1,3 @@
-const SignUpPage = "";
+const SignUpPage = () => {};
 
 export default SignUpPage;
