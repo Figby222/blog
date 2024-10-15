@@ -4,7 +4,7 @@ import Form from "./Form.jsx";
 const SignUpPage = ({ createAnAccount }) => {
     return (
         <>
-            <Form submitListener={() => {}} submitButtonText={""}>
+            <Form submitListener={() => {}} submitButtonText={"Submit"}>
                 <label htmlFor="username" className="username">
                     Username
                     <input type="text" name="username" id="username" />
@@ -17,7 +17,7 @@ const SignUpPage = ({ createAnAccount }) => {
                     Confirm Password
                     <input type="password" name="confirm_password" id="confirm-password" />
                 </label>
-                
+
             </Form>
         </>
     )
