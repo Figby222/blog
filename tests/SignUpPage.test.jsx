@@ -162,3 +162,36 @@ describe("Submitting the form with valid credentials", () => {
             .toHaveBeenCalledWith("testDifferentUsername", "testDifferentPassword4444", "testDifferentPassword4444");
     })
 })
+
+describe("Errors", () => {
+    it("Shows error for username", async () => {
+        const onSubmit = vi.fn(() => {
+            return {
+                errors: [
+                    {
+                        field: "username",
+                        message: "Test Username Error",
+                    }
+                ]
+            }
+        });
+
+        render(<SignUpPage createAnAccount={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testTakenUsername");
+        await user.type(passwordInput, "testDifferentPassword4444");
+        await user.type(confirmPasswordInput, "testDifferentPassword4444");
+
+        await user.click(submitButton);
+        
+        expect(screen.queryByText(/Test Username Error/i))
+            .toBeInTheDocument();
+    })
+})
