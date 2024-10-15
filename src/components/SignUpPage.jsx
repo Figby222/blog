@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 const SignUpPage = ({ createAnAccount }) => {
     return (
         <>
-            <p className="username">Username</p>
+            <label htmlFor="username" className="username">
+                Username
+                <input type="text" name="username" id="username" />
+            </label>
         </>
     )
 };
@@ -11,5 +14,6 @@ const SignUpPage = ({ createAnAccount }) => {
 SignUpPage.propTypes = {
     createAnAccount: PropTypes.func.isRequired,
 }
+
 
 export default SignUpPage;
