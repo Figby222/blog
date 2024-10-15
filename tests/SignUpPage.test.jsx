@@ -7,8 +7,13 @@ describe("Sign-Up page existence", () => {
     it("Exists", () => {
         expect(SignUpPage).toBeDefined();;;;
     })
-
     it("Is a function", () => {
         expect(SignUpPage).toBeTypeOf("function");
+    })
+})
+describe("Username", () => {
+    it("Exists", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+        expect(screen.queryByText(/Username/i)).toBeInTheDocument();
     })
 })
