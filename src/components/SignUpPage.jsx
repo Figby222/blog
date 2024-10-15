@@ -9,6 +9,7 @@ const SignUpPage = ({ createAnAccount }) => {
 
     return (
         <>
+            <p className="username-error">Test Username Error</p>
             <Form submitListener={() => createAnAccount(username, password, confirmPassword)} submitButtonText={"Submit"}>
                 <label htmlFor="username" className="username">
                     Username
