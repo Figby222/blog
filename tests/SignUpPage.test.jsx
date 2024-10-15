@@ -14,12 +14,12 @@ describe("Sign-Up page existence", () => {
 })
 describe("Username", () => {
     it("Exists", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
         expect(screen.queryByText(/Username/i)).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
 
         expect(screen.queryByLabelText(/Username/i)).toBeInTheDocument();
     })
@@ -27,12 +27,12 @@ describe("Username", () => {
 
 describe("Password", () => {
     it("Exists", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
         expect(screen.queryByText("Password")).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
         
         expect(screen.queryByLabelText("Password")).toBeInTheDocument();
     })
@@ -40,12 +40,12 @@ describe("Password", () => {
 
 describe("Confirm Password", () => {
     it("Exists", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
         expect(screen.queryByText(/Confirm Password/i)).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
 
         expect(screen.queryByLabelText(/Confirm Password/i)).toBeInTheDocument();
     })
@@ -53,13 +53,13 @@ describe("Confirm Password", () => {
 
 describe("Submit Button", () => {
     it("Exists", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
         expect(screen.queryByRole("button"))
             .toBeInTheDocument();
     })
 
     it("Has Submit text", () => {
-        render(<SignUpPage createAnAccount={() => {}} />);
+        render(<SignUpPage createAnAccount={() => ({})} />);
         expect(screen.queryByRole("button").textContent).toMatch(/Submit/i);
     })
 })
@@ -81,7 +81,7 @@ describe("Submitting the form with valid credentials", () => {
         await user.click(submitButton);
     }
     it("Calls createAnAccount", async () => {
-        const onSubmit = vi.fn(() => {})
+        const onSubmit = vi.fn(() => ({}))
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
@@ -102,7 +102,7 @@ describe("Submitting the form with valid credentials", () => {
     })
 
     it("Doesn't call createAnAccount when not submitted", async () => {
-        const onSubmit = vi.fn(() => {});
+        const onSubmit = vi.fn(() => ({}));
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
@@ -119,7 +119,7 @@ describe("Submitting the form with valid credentials", () => {
     })
 
     it("Calls createAnAccount with form details", async () => {
-        const onSubmit = vi.fn(() => {});
+        const onSubmit = vi.fn(() => ({}));
 
         render(<SignUpPage createAnAccount={onSubmit} />);
 
@@ -140,7 +140,7 @@ describe("Submitting the form with valid credentials", () => {
     })
 
     it("Calls createAnAccount with different provided values", async () => {
-        const onSubmit = vi.fn(() => {});
+        const onSubmit = vi.fn(() => ({}));
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
@@ -229,7 +229,7 @@ describe("Errors", () => {
     })
 
     it("Only shows error on error", async () => {
-        const onSubmit = vi.fn(() => {});
+        const onSubmit = vi.fn(() => ({}));
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
