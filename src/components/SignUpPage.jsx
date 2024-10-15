@@ -11,7 +11,10 @@ const SignUpPage = ({ createAnAccount }) => {
                 Password
                 <input type="password" name="password" id="password" />
             </label>
-            <p className="confirm-password">Confirm Password</p>
+            <label htmlFor="confirm-password" className="confirm-password">
+                Confirm Password
+                <input type="password" name="confirm_password" id="confirm-password" />
+            </label>
         </>
     )
 };
@@ -19,6 +22,5 @@ const SignUpPage = ({ createAnAccount }) => {
 SignUpPage.propTypes = {
     createAnAccount: PropTypes.func.isRequired,
 }
-
 
 export default SignUpPage;
