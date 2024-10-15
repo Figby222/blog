@@ -56,4 +56,9 @@ describe("Submit Button", () => {
         expect(screen.queryByRole("button"))
             .toBeInTheDocument();
     })
+
+    it("Has Submit text", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+        expect(screen.queryByRole("button").textContent).toMatch(/Submit/i);
+    })
 })
