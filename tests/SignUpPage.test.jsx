@@ -23,3 +23,10 @@ describe("Username", () => {
         expect(screen.queryByLabelText(/Username/i)).toBeInTheDocument();
     })
 })
+
+describe("Password", () => {
+    it("Exists", () => {
+        render(<SignUpPage createAnAccount={() => {}} />);
+        expect(screen.queryByText(/Password/i)).toBeInTheDocument();
+    })
+})
