@@ -42,4 +42,10 @@ describe("Confirm Password", () => {
         render(<SignUpPage createAnAccount={() => {}} />);
         expect(screen.queryByText(/Confirm Password/i)).toBeInTheDocument();
     })
+
+    it("Is has an input", () => {
+        render(<SignUpPage createAnnAccount={() => {}} />);
+
+        expect(screen.queryByLabelText(/Confirm Password/i)).toBeInTheDocument();
+    })
 })
