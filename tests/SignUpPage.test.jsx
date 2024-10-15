@@ -27,13 +27,13 @@ describe("Username", () => {
 describe("Password", () => {
     it("Exists", () => {
         render(<SignUpPage createAnAccount={() => {}} />);
-        expect(screen.queryByText(/Password/i)).toBeInTheDocument();
+        expect(screen.queryByText("Password")).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
         render(<SignUpPage createAnAccount={() => {}} />);
         
-        expect(screen.queryByLabelText(/Password/i)).toBeInTheDocument();
+        expect(screen.queryByLabelText("Password")).toBeInTheDocument();
     })
 })
 
