@@ -138,4 +138,27 @@ describe("Submitting the form with valid credentials", () => {
 
         expect(onSubmit).toHaveBeenCalledWith("testUsername", "testPassword4444", "testPassword4444");
     })
+
+    it("Calls createAnAccount with different provided values", async () => {
+        const onSubmit = vi.fn(() => {});
+        render(<SignUpPage createAnAccount={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText("Password");
+        const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testDifferentUsername");
+        await user.type(passwordInput, "testDifferentPassword4444");
+        await user.type(confirmPasswordInput, "testDifferentPassword4444");
+
+        await user.click(submitButton);
+
+        expect(onSubmit)
+            .not.toHaveBeenCalledWith("testUsername", "testPassword4444", "testPassword4444");
+        expect(onSubmit)
+            .toHaveBeenCalledWith("testDifferentUsername", "testDifferentPassword4444", "testDifferentPassword4444");
+    })
 })
