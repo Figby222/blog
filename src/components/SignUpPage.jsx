@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import Form from "./Form.jsx";
 
 const SignUpPage = ({ createAnAccount }) => {
+
+    createAnAccount();
     return (
         <>
             <Form submitListener={() => {}} submitButtonText={"Submit"}>
