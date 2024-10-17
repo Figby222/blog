@@ -42,3 +42,12 @@ describe("Password field", () => {
             .toBeInTheDocument();
     })
 })
+
+describe("Submit button", () => {
+    it("Exists", () => {
+        render(<LogInPage logInUser={() => {}} />);
+
+        expect(screen.queryByRole("button"))
+            .toBeInTheDocument();
+    })
+})
