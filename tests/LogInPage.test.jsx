@@ -83,7 +83,7 @@ describe("Submitting the form", () => {
 
     it("Doesn't call logInUser not on submit", async () => {
         const onSubmit = vi.fn(() => ({}));
-        
+
         render(<LogInPage logInUser={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
@@ -96,5 +96,24 @@ describe("Submitting the form", () => {
 
         expect(onSubmit)
             .not.toHaveBeenCalled();
+    })
+
+    it("Calls logInUser with credentials", async () => {
+        const onSubmit = vi.fn(() => ({}));
+
+        render(<LogInPage logInUser={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testValidUsername");
+        await user.type(passwordInput, "testValidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(onSubmit).toHaveBeenCalledWith("testValidUsername", "testValidPassword4444");
     })
 })
