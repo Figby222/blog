@@ -18,7 +18,7 @@ const LogInPage = ({ logInUser }) => {
         <>
             {
                 errors.length > 0 && 
-                <p className="errors">Test Error Message</p>
+                <p className="errors">{ errors[0].message }</p>
 
             }
             <Form submitListener={() => submitHandler(username, password)} submitButtonText={"Submit"}>
