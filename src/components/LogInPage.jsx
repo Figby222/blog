@@ -7,6 +7,7 @@ const LogInPage = ({ logInUser }) => {
                 Username
                 <input type="text" name="username" id="username" />
             </label>
+            <p className="password">Password</p>
         </>
     )
 };
