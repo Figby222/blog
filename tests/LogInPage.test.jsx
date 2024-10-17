@@ -50,4 +50,10 @@ describe("Submit button", () => {
         expect(screen.queryByRole("button"))
             .toBeInTheDocument();
     })
+
+    it("Has submit text", () => {
+        render(<LogInPage logInUser={() => {}} />);
+        expect(screen.queryByRole("button").textContent)
+            .toMatch(/Submit/i);
+    })
 })
