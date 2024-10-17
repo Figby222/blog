@@ -5,7 +5,7 @@ const LogInPage = ({ logInUser }) => {
 
     return (
         <>
-            <Form submitListener={logInUser} submitButtonText={"Submit"}>
+            <Form submitListener={() => logInUser("testValidUsername", "testValidPassword4444")} submitButtonText={"Submit"}>
                 <label className="username" htmlFor="username">
                     Username
                     <input type="text" name="username" id="username" />
