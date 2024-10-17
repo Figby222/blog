@@ -34,4 +34,11 @@ describe("Password field", () => {
 
         expect(screen.queryByText(/Password/i)).toBeInTheDocument();
     })
+
+    it("Is has an input", () => {
+        render(<LogInPage logInUser={() => {}} />);
+
+        expect(screen.queryByLabelText(/Password/i))
+            .toBeInTheDocument();
+    })
 })
