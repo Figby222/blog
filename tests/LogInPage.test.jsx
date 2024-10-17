@@ -208,4 +208,31 @@ describe("Errors", () => {
         expect(screen.queryByText(/Test Different Error Message/i))
             .toBeInTheDocument();
     })
+
+    it("Can render multiple errors", async () => {
+        const onSubmit = vi.fn(() => ({
+            errors: [
+                { field: "all", message: "Test Error Message" },
+                { field: "all", message: "Test Different Error Message" }
+            ]
+        }))
+
+        render(<LogInPage logInUser={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testInvalidUsername");
+        await user.type(passwordInput, "testInvalidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(screen.queryByText(/Test Error Message/i))
+            .toBeInTheDocument();
+        expect(screen.queryByText(/Test Different Error Message/i))
+            .toBeInTheDocument();
+    })
 })
