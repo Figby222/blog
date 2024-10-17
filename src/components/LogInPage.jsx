@@ -1,3 +1,3 @@
-const LogInPage = "";
+const LogInPage = () => {};
 
 export default LogInPage;
