@@ -1,7 +1,8 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { screen } from "@testing-library/react";
 import { render } from "../lib/testing-utils.jsx";
 import LogInPage from "../src/components/LogInPage.jsx";
+import userEvent from "@testing-library/user-event";
 
 describe("LogInPage existence", () => {
     it("Exists", () => {
@@ -55,5 +56,28 @@ describe("Submit button", () => {
         render(<LogInPage logInUser={() => {}} />);
         expect(screen.queryByRole("button").textContent)
             .toMatch(/Submit/i);
+    })
+})
+
+describe("Submitting the form", () => {
+    it("Calls logInUser on submit", async () => {
+        const onSubmit = vi.fn(() => ({}));
+        render(<LogInPage logInUser={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testValidUsername");
+        await user.type(passwordInput, "testValidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(onSubmit).toHaveBeenCalled();
+
+        
+
     })
 })
