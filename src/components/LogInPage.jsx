@@ -11,17 +11,15 @@ const LogInPage = ({ logInUser }) => {
     const submitHandler = async (username, password) => {
         const response = logInUser(username, password);
 
-        response.errors && setErrors([ response.errors[0] ]);
+        response.errors && setErrors(response.errors);
     }
 
     return (
         <>
-            {
-                errors.length > 0 && 
-                <p className="errors">{ errors[0].message }</p>
-
-            }
             <Form submitListener={() => submitHandler(username, password)} submitButtonText={"Submit"}>
+                <section className="errors">
+                    <Errors errors={errors} />
+                </section>
                 <label className="username" htmlFor="username">
                     Username
                     <input type="text" name="username" id="username" 
