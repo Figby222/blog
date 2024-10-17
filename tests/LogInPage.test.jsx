@@ -116,4 +116,25 @@ describe("Submitting the form", () => {
 
         expect(onSubmit).toHaveBeenCalledWith("testValidUsername", "testValidPassword4444");
     })
+
+    it("Calls logInUser with different credentials", async () => {
+        const onSubmit = vi.fn(() => ({}));
+        render(<LogInPage logInUser={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testDifferentValidUsername");
+        await user.type(passwordInput, "testDifferentValidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(onSubmit)
+            .toHaveBeenCalledWith(
+                "testDifferentValidUsername", 
+                "testDifferentValidPassword4444");
+    })
 })
