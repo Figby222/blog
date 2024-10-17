@@ -4,7 +4,7 @@ import Form from "./Form";
 const LogInPage = ({ logInUser }) => {
     return (
         <>
-            <Form submitListener={() => {}} submitButtonText={""}>
+            <Form submitListener={() => {}} submitButtonText={"Submit"}>
                 <label className="username" htmlFor="username">
                     Username
                     <input type="text" name="username" id="username" />
