@@ -5,10 +5,10 @@ const TextBox = ({ label, placeholder, value, onChange }) => {
         <>
             <label className="textbox-label">
                 { label }
-                <textarea 
+                <textarea value={value}
                 className="new-comment-text" 
                 placeholder={placeholder}
-                onChange={(e) => onChange(e.target.value)}>{ value }</textarea>
+                onChange={(e) => onChange(e.target.value)}></textarea>
             </label>
         </>
     )
