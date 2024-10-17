@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Form from "./Form";
 import { useState } from "react";
+import Errors from "./Errors.jsx";
 
 const LogInPage = ({ logInUser }) => {
     const [ username, setUsername ] = useState("");
@@ -8,6 +9,7 @@ const LogInPage = ({ logInUser }) => {
 
     return (
         <>
+            <p className="errors">Test Error Message</p>
             <Form submitListener={() => logInUser(username, password)} submitButtonText={"Submit"}>
                 <label className="username" htmlFor="username">
                     Username
