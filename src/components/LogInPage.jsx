@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 const LogInPage = ({ logInUser }) => {
     return (
         <>
-            <p className="username">Username</p>
+            <label className="username" htmlFor="username">
+                Username
+                <input type="text" name="username" id="username" />
+            </label>
         </>
     )
 };
