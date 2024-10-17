@@ -20,5 +20,10 @@ describe("Username field", () => {
         expect(screen.queryByText(/Username/i)).toBeInTheDocument();
     })
 
-    
+    it("Is has an input", () => {
+        render(<LogInPage logInUser={() => {}} />);
+
+        expect(screen.queryByLabelText(/Username/i))
+            .toBeInTheDocument();
+    })
 })
