@@ -161,4 +161,24 @@ describe("Errors", () => {
         expect(screen.queryByText(/Test Error Message/i))
             .toBeInTheDocument();
     })
+
+    it("Does not set error if there is no error", async () => {
+        const onSubmit = vi.fn(() => ({}));
+
+        render(<LogInPage logInUser={onSubmit} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testInvalidUsername");
+        await user.type(passwordInput, "testInvalidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(screen.queryByText(/Test Error Message/i))
+            .not.toBeInTheDocument();
+    })
 })
