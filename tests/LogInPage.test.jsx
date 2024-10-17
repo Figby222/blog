@@ -27,3 +27,11 @@ describe("Username field", () => {
             .toBeInTheDocument();
     })
 })
+
+describe("Password field", () => {
+    it("Exists", () => {
+        render(<LogInPage logInUser={() => {}} />);
+
+        expect(screen.queryByText(/Password/i)).toBeInTheDocument();
+    })
+})
