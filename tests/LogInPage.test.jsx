@@ -12,3 +12,13 @@ describe("LogInPage existence", () => {
         expect(LogInPage).toBeTypeOf("function");
     })
 })
+
+describe("Username field", () => {
+    it("Exists", () => {
+        render(<LogInPage logInUser={() => {}} />);
+        
+        expect(screen.queryByText(/Username/i)).toBeInTheDocument();
+    })
+
+    
+})
