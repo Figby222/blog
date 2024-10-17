@@ -6,11 +6,22 @@ import Errors from "./Errors.jsx";
 const LogInPage = ({ logInUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
+    const [ errors, setErrors ] = useState([]);
+
+    const submitHandler = async (username, password) => {
+        const response = logInUser(username, password);
+
+        response.errors && setErrors([ response.errors[0] ]);
+    }
 
     return (
         <>
-            <p className="errors">Test Error Message</p>
-            <Form submitListener={() => logInUser(username, password)} submitButtonText={"Submit"}>
+            {
+                errors.length > 0 && 
+                <p className="errors">Test Error Message</p>
+
+            }
+            <Form submitListener={() => submitHandler(username, password)} submitButtonText={"Submit"}>
                 <label className="username" htmlFor="username">
                     Username
                     <input type="text" name="username" id="username" 
