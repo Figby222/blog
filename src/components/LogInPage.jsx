@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import Form from "./Form";
 
 const LogInPage = ({ logInUser }) => {
+
+    logInUser();
     return (
         <>
             <Form submitListener={() => {}} submitButtonText={"Submit"}>
