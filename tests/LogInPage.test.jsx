@@ -7,4 +7,8 @@ describe("LogInPage existence", () => {
     it("Exists", () => {
         expect(LogInPage).toBeDefined();
     })
+    
+    it("Is a function", () => {
+        expect(LogInPage).toBeTypeOf("function");
+    })
 })
