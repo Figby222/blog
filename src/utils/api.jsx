@@ -55,4 +55,30 @@ const createComment = async (postId, commentText) => {
     }
 }
 
-export { useBlogPostData, createComment };
+const useBlogsListData = () => {
+    const [ error, setError ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
+    const [ data, setData ] = useState(null);
+    
+    const blogData = {
+        blogs: data
+    }
+
+    useEffect(() => {
+        fetch(`${apiLink}/posts`, { mode: "cors" })
+            .then((response) => {
+                return response.json();
+            })
+            .then((response) => {
+                setData(response)
+            })
+            .catch((err) => setError(err))
+            .finally(() => {
+                setLoading(false);
+            })
+    }, []);
+
+    return { error: error, loading: loading, data: blogData }
+}
+
+export { useBlogPostData, createComment, useBlogsListData };
