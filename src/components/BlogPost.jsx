@@ -3,6 +3,7 @@ import Comment from "./Comment.jsx";
 import TextBox from "./TextBox.jsx";
 import { useState } from "react";
 import Form from "./Form.jsx";
+import { useParams } from "react-router-dom";
 
 
 const NewCommentForm = ({ postId, createComment }) => {
@@ -24,7 +25,9 @@ NewCommentForm.propTypes = {
 }
 
 const BlogPost = ({ useAllData, postId, createComment }) => {
-    const { error, loading, data } = useAllData();
+    const { postId } = useParams();
+
+    const { error, loading, data } = useAllData(postId);
 
     if(error) {
         return (<h1 className="error">An error has occurred</h1>)
