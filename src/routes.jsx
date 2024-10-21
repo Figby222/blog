@@ -1,7 +1,8 @@
 import App from "./App.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import BlogPost from "./components/BlogPost.jsx";
-import { useBlogPostData, createComment } from "./utils/api.jsx";
+import Blogs from "./components/Blogs.jsx";
+import { useBlogPostData, createComment, useBlogsListData } from "./utils/api.jsx";
 const postId = 4;
 
 const routes = [
@@ -13,6 +14,10 @@ const routes = [
     {
         path: "/posts/:postId",
         element: <BlogPost useAllData={useBlogPostData} postId={postId} createComment={createComment} />
+    },
+    {
+        path: "/posts",
+        element: <Blogs useAllData={useBlogsListData} />
     }
 ];
 
