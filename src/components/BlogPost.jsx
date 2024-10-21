@@ -24,7 +24,7 @@ NewCommentForm.propTypes = {
     createComment: PropTypes.func.isRequired,
 }
 
-const BlogPost = ({ useAllData, postId, createComment }) => {
+const BlogPost = ({ useAllData, createComment }) => {
     const { postId } = useParams();
 
     const { error, loading, data } = useAllData(postId);
@@ -41,7 +41,7 @@ const BlogPost = ({ useAllData, postId, createComment }) => {
             </main>
             <section className="comments" aria-label="comments">
                 <h2 className="comments-heading">Comments</h2>
-                <NewCommentForm postId={postId} createComment={createComment} />
+                <NewCommentForm postId={parseInt(postId)} createComment={createComment} />
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
@@ -60,7 +60,6 @@ const BlogPost = ({ useAllData, postId, createComment }) => {
 
 BlogPost.propTypes = {
     useAllData: PropTypes.func.isRequired,
-    postId: PropTypes.number.isRequired,
     createComment: PropTypes.func.isRequired,
 }
 
