@@ -6,7 +6,7 @@ import Form from "./Form.jsx";
 import { useParams } from "react-router-dom";
 
 
-const NewCommentForm = ({ postId, createComment }) => {
+const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
     const [ textBoxValue, setTextBoxValue ] = useState("");
     return (
         <>
@@ -22,6 +22,7 @@ const NewCommentForm = ({ postId, createComment }) => {
 NewCommentForm.propTypes = {
     postId: PropTypes.number.isRequired,
     createComment: PropTypes.func.isRequired,
+    getBearerToken: PropTypes.func.isRequired,
 }
 
 const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
