@@ -81,4 +81,27 @@ const useBlogsListData = () => {
     return { error: error, loading: loading, data: blogData }
 }
 
-export { useBlogPostData, createComment, useBlogsListData };
+const createAnAccount = async (username, password, confirmPassword) => {
+    try {
+        const response = await fetch(`${apiLink}/users`, {
+            mode: "cors",
+            body: JSON.stringify({ username: "TestUsername", email: username, password: password, confirmPassword: confirmPassword }),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST"
+        });
+    
+        const data = await response.json();
+
+        console.log(data);
+
+        return { data };
+    } catch (err) {
+        return { errors: [
+            err
+        ]}
+    }
+}
+
+export { useBlogPostData, createComment, useBlogsListData, createAnAccount };
