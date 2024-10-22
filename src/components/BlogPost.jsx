@@ -24,7 +24,7 @@ NewCommentForm.propTypes = {
     createComment: PropTypes.func.isRequired,
 }
 
-const BlogPost = ({ useAllData, createComment }) => {
+const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
     const { postId } = useParams();
 
     const { error, loading, data } = useAllData(postId);
@@ -61,6 +61,7 @@ const BlogPost = ({ useAllData, createComment }) => {
 BlogPost.propTypes = {
     useAllData: PropTypes.func.isRequired,
     createComment: PropTypes.func.isRequired,
+    getBearerToken: PropTypes.func.isRequired,
 }
 
 export default BlogPost;
