@@ -85,7 +85,7 @@ const createAnAccount = async (username, password, confirmPassword) => {
     try {
         const response = await fetch(`${apiLink}/users`, {
             mode: "cors",
-            body: JSON.stringify({ username: "TestUsername", email: username, password: password, confirmPassword: confirmPassword }),
+            body: JSON.stringify({ username: "TestUsername4", email: username, password: password, confirmPassword: confirmPassword }),
             headers: {
                 "Content-Type": "application/json"
             },
@@ -104,4 +104,33 @@ const createAnAccount = async (username, password, confirmPassword) => {
     }
 }
 
-export { useBlogPostData, createComment, useBlogsListData, createAnAccount };
+const logInUser = async (username, password) => {
+    try {
+        const response = await fetch(`${apiLink}/users/log-in`, {
+            mode: "cors",
+            body: JSON.stringify({ email: username, password: password }),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST"
+        });
+
+        console.log(response.headers.get("Authorization"));
+    
+        const data = await response.json()
+
+        console.log(data);
+
+        const authToken = response.headers.get("Authorization");
+
+        return { token: authToken, message: data.message }
+    } catch(err) {
+        return { errors: [
+            err
+        ]};
+    }
+
+
+}
+
+export { useBlogPostData, createComment, useBlogsListData, createAnAccount, logInUser };
