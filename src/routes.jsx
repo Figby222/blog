@@ -3,7 +3,8 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import BlogPost from "./components/BlogPost.jsx";
 import Blogs from "./components/Blogs.jsx";
 import SignUpPage from "./components/SignUpPage.jsx";
-import { useBlogPostData, createComment, useBlogsListData, createAnAccount } from "./utils/api.jsx";
+import LogInPage from "./components/LogInPage.jsx";
+import { useBlogPostData, createComment, useBlogsListData, createAnAccount, logInUser } from "./utils/api.jsx";
 const postId = 4;
 
 const routes = [
@@ -23,6 +24,10 @@ const routes = [
     {
         path: "/sign-up",
         element: <SignUpPage createAnAccount={createAnAccount} />
+    },
+    {
+        path: "/log-in",
+        element: <LogInPage logInUser={logInUser} />
     }
 ];
 
