@@ -29,6 +29,7 @@ const SignUpPage = ({ createAnAccount }) => {
                         <Errors errors={errors.filter((error) => error.field.toLowerCase() === "username")} />
                     </section>
                 </div>
+                <p className="email">Email</p>
                 <div className="password-container">
                     <label htmlFor="password" className="password">
                         Password
