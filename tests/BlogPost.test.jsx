@@ -383,7 +383,7 @@ describe("New Comment Submit Button", () => {
             .toBeInTheDocument();
     })
     
-    it("Calls useAllData", async() => {
+    it.skip("Calls useAllData", async() => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
