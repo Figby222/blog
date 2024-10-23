@@ -35,6 +35,12 @@ describe("Email field", () => {
 
         expect(screen.queryByText(/Email/i)).toBeInTheDocument();
     })
+
+    it("Is has an input", () => {
+        render(<LogInPage logInUser={() => {}} />);
+
+        expect(screen.queryByLabelText(/Email/i)).toBeInTheDocument();
+    })
 })
 
 describe("Password field", () => {
