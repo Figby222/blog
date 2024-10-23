@@ -27,6 +27,7 @@ const LogInPage = ({ logInUser }) => {
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </label>
+                <p className="email">Email</p>
                 <label className="password" htmlFor="password">
                     Password
                     <input type="password" name="password" id="password" 
