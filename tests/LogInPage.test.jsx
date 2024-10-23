@@ -16,13 +16,13 @@ describe("LogInPage existence", () => {
 
 describe("Username field", () => {
     it("Exists", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
         
         expect(screen.queryByText(/Username/i)).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
 
         expect(screen.queryByLabelText(/Username/i))
             .toBeInTheDocument();
@@ -31,13 +31,13 @@ describe("Username field", () => {
 
 describe("Email field", () => {
     it("Exists", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
 
         expect(screen.queryByText(/Email/i)).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
 
         expect(screen.queryByLabelText(/Email/i)).toBeInTheDocument();
     })
@@ -45,13 +45,13 @@ describe("Email field", () => {
 
 describe("Password field", () => {
     it("Exists", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
 
         expect(screen.queryByText(/Password/i)).toBeInTheDocument();
     })
 
     it("Is has an input", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
 
         expect(screen.queryByLabelText(/Password/i))
             .toBeInTheDocument();
@@ -60,14 +60,14 @@ describe("Password field", () => {
 
 describe("Submit button", () => {
     it("Exists", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
 
         expect(screen.queryByRole("button"))
             .toBeInTheDocument();
     })
 
     it("Has submit text", () => {
-        render(<LogInPage logInUser={() => {}} />);
+        render(<LogInPage logInUser={() => {}} storeBearerToken={() => {}} />);
         expect(screen.queryByRole("button").textContent)
             .toMatch(/Submit/i);
     })
@@ -76,7 +76,7 @@ describe("Submit button", () => {
 describe("Submitting the form", () => {
     it("Calls logInUser on submit", async () => {
         const onSubmit = vi.fn(() => ({}));
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const emailInput = screen.queryByLabelText(/Email/i);
@@ -100,7 +100,7 @@ describe("Submitting the form", () => {
     it("Doesn't call logInUser not on submit", async () => {
         const onSubmit = vi.fn(() => ({}));
 
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const emailInput = screen.queryByLabelText(/Email/i);
@@ -119,7 +119,7 @@ describe("Submitting the form", () => {
     it("Calls logInUser with credentials", async () => {
         const onSubmit = vi.fn(() => ({}));
 
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const emailInput = screen.queryByLabelText(/Email/i);
@@ -139,7 +139,7 @@ describe("Submitting the form", () => {
 
     it("Calls logInUser with different credentials", async () => {
         const onSubmit = vi.fn(() => ({}));
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const emailInput = screen.queryByLabelText(/Email/i);
@@ -169,7 +169,7 @@ describe("Errors", () => {
                 { field: "all", message: "Test Error Message" }
             ]
         }))
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
@@ -188,7 +188,7 @@ describe("Errors", () => {
     it("Does not set error if there is no error", async () => {
         const onSubmit = vi.fn(() => ({}));
 
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
@@ -212,7 +212,7 @@ describe("Errors", () => {
             ]
         }))
 
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
@@ -240,7 +240,7 @@ describe("Errors", () => {
             ]
         }))
 
-        render(<LogInPage logInUser={onSubmit} />);
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
