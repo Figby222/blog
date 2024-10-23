@@ -79,12 +79,14 @@ describe("Submitting the form", () => {
         render(<LogInPage logInUser={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
         const submitButton = screen.queryByRole("button", { name: /Submit/i });
 
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testValidUsername");
+        await user.type(emailInput, "testValidEmail@figby.net");
         await user.type(passwordInput, "testValidPassword4444");
 
         await user.click(submitButton);
@@ -101,11 +103,13 @@ describe("Submitting the form", () => {
         render(<LogInPage logInUser={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
 
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testValidUsername");
+        await user.type(emailInput, "testValidEmail@figby.net");
         await user.type(passwordInput, "testValidPassword4444");
 
         expect(onSubmit)
@@ -118,17 +122,19 @@ describe("Submitting the form", () => {
         render(<LogInPage logInUser={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
         const submitButton = screen.queryByRole("button", { name: /Submit/i });
 
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testValidUsername");
+        await user.type(emailInput, "testValidEmail@figby.net")
         await user.type(passwordInput, "testValidPassword4444");
 
         await user.click(submitButton);
 
-        expect(onSubmit).toHaveBeenCalledWith("testValidUsername", "testValidPassword4444");
+        expect(onSubmit).toHaveBeenCalledWith("testValidUsername", "testValidEmail@figby.net", "testValidPassword4444");
     })
 
     it("Calls logInUser with different credentials", async () => {
@@ -136,12 +142,14 @@ describe("Submitting the form", () => {
         render(<LogInPage logInUser={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText(/Password/i);
         const submitButton = screen.queryByRole("button", { name: /Submit/i });
 
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testDifferentValidUsername");
+        await user.type(emailInput, "testDifferentValidEmail@figby.net");
         await user.type(passwordInput, "testDifferentValidPassword4444");
 
         await user.click(submitButton);
@@ -149,6 +157,7 @@ describe("Submitting the form", () => {
         expect(onSubmit)
             .toHaveBeenCalledWith(
                 "testDifferentValidUsername", 
+                "testDifferentValidEmail@figby.net",
                 "testDifferentValidPassword4444");
     })
 })
