@@ -104,11 +104,11 @@ const createAnAccount = async (username, email, password, confirmPassword) => {
     }
 }
 
-const logInUser = async (username, password) => {
+const logInUser = async (username, email, password) => {
     try {
         const response = await fetch(`${apiLink}/users/log-in`, {
             mode: "cors",
-            body: JSON.stringify({ email: username, password: password }),
+            body: JSON.stringify({ email: email, password: password }),
             headers: {
                 "Content-Type": "application/json"
             },
