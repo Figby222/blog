@@ -10,9 +10,11 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
     const [ errors, setErrors ] = useState([]);
 
     const submitHandler = async (username, email, password) => {
-        const response = logInUser(username, email, password);
+        const response = await logInUser(username, email, password);
 
         response.errors && setErrors(response.errors);
+
+        console.log(response);
 
         response.token && storeBearerToken(response.token);
     }
