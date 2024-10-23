@@ -160,6 +160,30 @@ describe("Submitting the form", () => {
                 "testDifferentValidEmail@figby.net",
                 "testDifferentValidPassword4444");
     })
+
+    it("Calls storeBearerToken with valid credentials", async () => {
+        const storeBearerToken = vi.fn(() => {});
+
+        const onSubmit = vi.fn(() => ({ token: "Bearer testToken"}));
+
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={storeBearerToken} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testValidUsername");
+        await user.type(emailInput, "testValidEmail@figby.net")
+        await user.type(passwordInput, "testValidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(storeBearerToken)
+            .toHaveBeenCalled();
+    })
 })
 
 describe("Errors", () => {
