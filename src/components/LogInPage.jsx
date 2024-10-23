@@ -9,12 +9,12 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
     const [ password, setPassword ] = useState("");
     const [ errors, setErrors ] = useState([]);
 
-    storeBearerToken();
-
     const submitHandler = async (username, email, password) => {
         const response = logInUser(username, email, password);
 
         response.errors && setErrors(response.errors);
+
+        storeBearerToken();
     }
 
     return (
