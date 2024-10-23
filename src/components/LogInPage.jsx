@@ -5,18 +5,19 @@ import Errors from "./Errors.jsx";
 
 const LogInPage = ({ logInUser }) => {
     const [ username, setUsername ] = useState("");
+    const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ errors, setErrors ] = useState([]);
 
-    const submitHandler = async (username, password) => {
-        const response = logInUser(username, password);
+    const submitHandler = async (username, email, password) => {
+        const response = logInUser(username, email, password);
 
         response.errors && setErrors(response.errors);
     }
 
     return (
         <>
-            <Form submitListener={() => submitHandler(username, password)} submitButtonText={"Submit"}>
+            <Form submitListener={() => submitHandler(username, email, password)} submitButtonText={"Submit"}>
                 <section className="errors">
                     <Errors errors={errors} />
                 </section>
@@ -29,7 +30,10 @@ const LogInPage = ({ logInUser }) => {
                 </label>
                 <label className="email" htmlFor="email">
                     Email
-                    <input type="text" name="email" id="email" />
+                    <input type="text" name="email" id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                 </label>
                 <label className="password" htmlFor="password">
                     Password
