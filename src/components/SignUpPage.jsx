@@ -5,6 +5,7 @@ import Errors from "./Errors.jsx"
 
 const SignUpPage = ({ createAnAccount }) => {
     const [ username, setUsername ] = useState("");
+    const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ confirmPassword, setConfirmPassword ] = useState("");
     const [ errors, setErrors ] = useState([]);
@@ -17,7 +18,7 @@ const SignUpPage = ({ createAnAccount }) => {
 
     return (
         <>
-            <Form submitListener={() => handleFormSubmission(username, password, confirmPassword)} submitButtonText={"Submit"}>
+            <Form submitListener={() => handleFormSubmission(username, email, password, confirmPassword)} submitButtonText={"Submit"}>
                 <div className="username-container">
                     <label htmlFor="username" className="username">
                         Username
@@ -32,13 +33,14 @@ const SignUpPage = ({ createAnAccount }) => {
                 <div className="email-container">
                     <label htmlFor="email" className="email">
                         Email
-                        <input type="text" name="email" id="email" />
+                        <input type="text" name="email" id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         <section className="errors">
                             <Errors errors={errors.filter((error) => error.field.toLowerCase() === "email")} />
                         </section>
                     </label>
-
-                    
                 </div>
                 <div className="password-container">
                     <label htmlFor="password" className="password">
