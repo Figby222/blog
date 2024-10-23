@@ -108,7 +108,7 @@ const logInUser = async (username, email, password) => {
     try {
         const response = await fetch(`${apiLink}/users/log-in`, {
             mode: "cors",
-            body: JSON.stringify({ email: email, password: password }),
+            body: JSON.stringify({ username: username, email: email, password: password }),
             headers: {
                 "Content-Type": "application/json"
             },
