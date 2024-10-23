@@ -229,6 +229,32 @@ describe("Submitting the form", () => {
         expect(storeBearerToken)
             .toHaveBeenCalledWith("Bearer testToken");
     })
+
+    it("Doesn't call storeBearerToken if there is no token", async () => {
+        const storeBearerToken = vi.fn(() => {});
+
+        const logInUser = vi.fn(() => ({ errors: [
+            { field: "all", message: "Test Error" }
+        ]}));
+
+        render(<LogInPage logInUser={logInUser} storeBearerToken={storeBearerToken} />);
+
+        const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
+        const passwordInput = screen.queryByLabelText(/Password/i);
+        const submitButton = screen.queryByRole("button", { name: /Submit/i });
+
+        const user = userEvent.setup();
+
+        await user.type(usernameInput, "testValidUsername");
+        await user.type(emailInput, "testValidEmail@figby.net")
+        await user.type(passwordInput, "testValidPassword4444");
+
+        await user.click(submitButton);
+
+        expect(storeBearerToken)
+            .not.toHaveBeenCalled();
+    })
 })
 
 describe("Errors", () => {
