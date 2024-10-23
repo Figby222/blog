@@ -99,6 +99,7 @@ describe("Submitting the form with valid credentials", () => {
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText("Password");
         const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
         const submitButton = screen.queryByRole("button", { name: /Submit/i });
@@ -106,6 +107,7 @@ describe("Submitting the form with valid credentials", () => {
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testUsername");
+        await user.type(emailInput, "testEmail@quom.io");
         await user.type(passwordInput, "testPassword4444");
         await user.type(confirmPasswordInput, "testPassword4444");
 
@@ -120,12 +122,14 @@ describe("Submitting the form with valid credentials", () => {
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText("Password");
         const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
 
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testUsername");
+        await user.type(emailInput, "testEmail@quom.io");
         await user.type(passwordInput, "testPassword4444");
         await user.type(confirmPasswordInput, "testPassword4444");
 
@@ -138,6 +142,7 @@ describe("Submitting the form with valid credentials", () => {
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText("Password");
         const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
         const submitButton = screen.queryByRole("button", { name: /Submit/i });
@@ -145,12 +150,13 @@ describe("Submitting the form with valid credentials", () => {
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testUsername");
+        await user.type(emailInput, "testEmail@quom.io")
         await user.type(passwordInput, "testPassword4444");
         await user.type(confirmPasswordInput, "testPassword4444");
 
         await user.click(submitButton);
 
-        expect(onSubmit).toHaveBeenCalledWith("testUsername", "testPassword4444", "testPassword4444");
+        expect(onSubmit).toHaveBeenCalledWith("testUsername", "testEmail@quom.io", "testPassword4444", "testPassword4444");
     })
 
     it("Calls createAnAccount with different provided values", async () => {
@@ -158,6 +164,7 @@ describe("Submitting the form with valid credentials", () => {
         render(<SignUpPage createAnAccount={onSubmit} />);
 
         const usernameInput = screen.queryByLabelText(/Username/i);
+        const emailInput = screen.queryByLabelText(/Email/i);
         const passwordInput = screen.queryByLabelText("Password");
         const confirmPasswordInput = screen.queryByLabelText(/Confirm Password/i);
         const submitButton = screen.queryByRole("button", { name: /Submit/i });
@@ -165,15 +172,16 @@ describe("Submitting the form with valid credentials", () => {
         const user = userEvent.setup();
 
         await user.type(usernameInput, "testDifferentUsername");
+        await user.type(emailInput, "testDifferentEmail@quom.io")
         await user.type(passwordInput, "testDifferentPassword4444");
         await user.type(confirmPasswordInput, "testDifferentPassword4444");
 
         await user.click(submitButton);
 
         expect(onSubmit)
-            .not.toHaveBeenCalledWith("testUsername", "testPassword4444", "testPassword4444");
+            .not.toHaveBeenCalledWith("testUsername", "testEmail@quom.io", "testPassword4444", "testPassword4444");
         expect(onSubmit)
-            .toHaveBeenCalledWith("testDifferentUsername", "testDifferentPassword4444", "testDifferentPassword4444");
+            .toHaveBeenCalledWith("testDifferentUsername", "testDifferentEmail@quom.io", "testDifferentPassword4444", "testDifferentPassword4444");
     })
 })
 
