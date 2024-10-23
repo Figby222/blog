@@ -81,11 +81,11 @@ const useBlogsListData = () => {
     return { error: error, loading: loading, data: blogData }
 }
 
-const createAnAccount = async (username, password, confirmPassword) => {
+const createAnAccount = async (username, email, password, confirmPassword) => {
     try {
         const response = await fetch(`${apiLink}/users`, {
             mode: "cors",
-            body: JSON.stringify({ username: "TestUsername4", email: username, password: password, confirmPassword: confirmPassword }),
+            body: JSON.stringify({ username: "TestUsername4", email: email, password: password, confirmPassword: confirmPassword }),
             headers: {
                 "Content-Type": "application/json"
             },
