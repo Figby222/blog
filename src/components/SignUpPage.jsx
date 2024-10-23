@@ -10,8 +10,8 @@ const SignUpPage = ({ createAnAccount }) => {
     const [ confirmPassword, setConfirmPassword ] = useState("");
     const [ errors, setErrors ] = useState([]);
 
-    const handleFormSubmission = async (username, password, confirmPassword) => {
-        const response = await createAnAccount(username, password, confirmPassword);
+    const handleFormSubmission = async (username, email, password, confirmPassword) => {
+        const response = await createAnAccount(username, email, password, confirmPassword);
         
         response.errors && setErrors(response.errors);
     }
