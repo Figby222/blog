@@ -31,6 +31,12 @@ describe("Email", () => {
 
         expect(screen.queryByText(/Email/i)).toBeInTheDocument();
     })
+
+    it("Is has an input", () => {
+        render(<SignUpPage createAnAccount={() => ({})} />);
+
+        expect(screen.queryByLabelText(/Email/i)).toBeInTheDocument();
+    })
 })
 
 describe("Password", () => {
@@ -202,7 +208,6 @@ describe("Errors", () => {
         expect(screen.queryByText(/Test Username Error/i))
             .toBeInTheDocument();
     })
-
     it("Shows a different username error", async () => {
         const onSubmit = vi.fn(() => {
             return {
@@ -235,7 +240,6 @@ describe("Errors", () => {
         expect(screen.queryByText(/Test Different Username Error/i))
             .toBeInTheDocument();
     })
-
     it("Only shows error on error", async () => {
         const onSubmit = vi.fn(() => ({}));
         render(<SignUpPage createAnAccount={onSubmit} />);
@@ -256,7 +260,6 @@ describe("Errors", () => {
         expect(screen.queryByText(/That username is unavailable/i))
             .not.toBeInTheDocument();
     })
-
     it("Can render multiple errors", async () => {
         const onSubmit = vi.fn(() => {
             return {
@@ -293,6 +296,4 @@ describe("Errors", () => {
         expect(screen.queryByText(/Test Different Username Error/i))
             .toBeInTheDocument();
     })
-
-
 })
