@@ -29,6 +29,14 @@ describe("Username field", () => {
     })
 })
 
+describe("Email field", () => {
+    it("Exists", () => {
+        render(<LogInPage logInUser={() => {}} />);
+
+        expect(screen.queryByText(/Email/i)).toBeInTheDocument();
+    })
+})
+
 describe("Password field", () => {
     it("Exists", () => {
         render(<LogInPage logInUser={() => {}} />);
