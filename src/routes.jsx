@@ -5,6 +5,7 @@ import Blogs from "./components/Blogs.jsx";
 import SignUpPage from "./components/SignUpPage.jsx";
 import LogInPage from "./components/LogInPage.jsx";
 import { useBlogPostData, createComment, useBlogsListData, createAnAccount, logInUser } from "./utils/api.jsx";
+import { storeBearerToken } from "./utils/storage.jsx";
 const postId = 4;
 
 const routes = [
@@ -27,7 +28,7 @@ const routes = [
     },
     {
         path: "/log-in",
-        element: <LogInPage logInUser={logInUser} />
+        element: <LogInPage logInUser={logInUser} storeBearerToken={storeBearerToken} />
     }
 ];
 
