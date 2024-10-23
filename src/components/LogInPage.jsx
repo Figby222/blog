@@ -3,7 +3,7 @@ import Form from "./Form";
 import { useState } from "react";
 import Errors from "./Errors.jsx";
 
-const LogInPage = ({ logInUser }) => {
+const LogInPage = ({ logInUser, storeBearerToken }) => {
     const [ username, setUsername ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
@@ -47,7 +47,8 @@ const LogInPage = ({ logInUser }) => {
     )
 };
 LogInPage.propTypes = {
-    logInUser: PropTypes.func.isRequired
+    logInUser: PropTypes.func.isRequired,
+    storeBearerToken: PropTypes.func.isRequired,
 };
 
 export default LogInPage;
