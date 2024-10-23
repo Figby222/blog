@@ -14,7 +14,7 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
 
         response.errors && setErrors(response.errors);
 
-        storeBearerToken();
+        storeBearerToken("Bearer testToken");
     }
 
     return (
