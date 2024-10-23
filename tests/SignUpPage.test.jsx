@@ -25,6 +25,14 @@ describe("Username", () => {
     })
 })
 
+describe("Email", () => {
+    it("Exists", () => {
+        render(<SignUpPage createAnAccount={() => ({})} />);
+
+        expect(screen.queryByText(/Email/i)).toBeInTheDocument();
+    })
+})
+
 describe("Password", () => {
     it("Exists", () => {
         render(<SignUpPage createAnAccount={() => ({})} />);
