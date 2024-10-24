@@ -9,11 +9,15 @@ import { useParams } from "react-router-dom";
 const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
     const [ textBoxValue, setTextBoxValue ] = useState("");
 
-    getBearerToken();
+    const onSubmit = async (postId, textBoxValue) => {
+        const bearerToken = getBearerToken();
+
+        createComment(postId, textBoxValue, bearerToken);
+    }
     return (
         <>
             <Form 
-            submitListener={() => createComment(postId, textBoxValue, "Bearer testToken")} 
+            submitListener={() => onSubmit(postId, textBoxValue)} 
             submitButtonText={"Comment"}>
                 <TextBox label={""} placeholder={"New Comment..."} value={textBoxValue} onChange={setTextBoxValue} />
             </Form>
