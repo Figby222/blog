@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 
 const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
     const [ textBoxValue, setTextBoxValue ] = useState("");
+
+    getBearerToken();
     return (
         <>
             <Form 
@@ -42,7 +44,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
             </main>
             <section className="comments" aria-label="comments">
                 <h2 className="comments-heading">Comments</h2>
-                <NewCommentForm postId={parseInt(postId)} createComment={createComment} />
+                <NewCommentForm postId={parseInt(postId)} createComment={createComment} getBearerToken={getBearerToken} />
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
