@@ -3,6 +3,7 @@ import { screen, render as _render, act } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import BlogPost from "../src/components/BlogPost.jsx";
 import userEvent from "@testing-library/user-event";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
 
 const render = (component) => {
     return _render(<MemoryRouter>
@@ -429,5 +430,40 @@ describe("Using bearer token", () => {
 
         expect(mockGetBearerToken)
             .toHaveBeenCalled();
+    })
+
+    it("Calls createComment with Bearer token", async () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "TEST TITle",
+            text: "Test Text",
+            comments: []
+        });
+        const mockCreateComment = vi.fn(() => ({}));
+        const mockGetBearerToken = vi.fn(() => "Bearer testToken");
+
+        const routes = [
+            {
+                path: "/posts/:postId",
+                element: <BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />
+            }
+        ]
+        
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/", "/posts/4" ],
+            initialIndex: 1
+        })
+
+        _render(<RouterProvider router={router} />);
+        
+        const textbox = screen.queryByRole("textbox");
+        const submitButton = screen.queryByRole("button",
+            { name: /Comment/i }
+        );
+        const user = userEvent.setup();
+        await user.type(textbox, "Test Text");
+        await user.click(submitButton);
+
+        expect(mockCreateComment)
+            .toHaveBeenCalledWith(4, "Test Text", "Bearer testToken")
     })
 })
