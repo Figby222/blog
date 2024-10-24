@@ -28,7 +28,7 @@ describe("BlogPost", () => {
     it("Renders loading if loading", () => {
         const mockUseAllData = getUseAllDataMock(false, true, null);
         
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const loadingElements = screen.queryAllByText(/loading/i);
 
@@ -42,7 +42,7 @@ describe("BlogPost", () => {
             comments: [],
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const headings = screen.queryAllByRole("heading");
 
@@ -56,7 +56,7 @@ describe("BlogPost", () => {
             comments: [],
         })
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const titleHeading = screen.queryByRole(
             "heading",
@@ -73,7 +73,7 @@ describe("BlogPost", () => {
             comments: []
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />)
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />)
 
         const paragraphs = screen.queryAllByRole("paragraph");
 
@@ -87,7 +87,7 @@ describe("BlogPost", () => {
             comments: []
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const textParagraph = screen.queryByText(/Blog Text/i);
 
@@ -114,7 +114,7 @@ describe("BlogPost", () => {
             comments: []
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const titleHeading = screen.queryByRole(
             "heading",
@@ -131,7 +131,7 @@ describe("BlogPost", () => {
             comments: []
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const textParagraph = screen.queryByText(/Different Text/i);
 
@@ -145,7 +145,7 @@ describe("BlogPost", () => {
             comments: [],
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const loadingElements = screen.queryAllByText(/loading/i);
 
@@ -159,7 +159,7 @@ describe("BlogPost", () => {
             comments: [],
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const errorHeading = screen.queryByRole(
             "heading",
@@ -183,7 +183,7 @@ describe("BlogPost", () => {
             ]
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByText(/Test Comment Username/i))
             .toBeInTheDocument();
@@ -209,7 +209,7 @@ describe("BlogPost", () => {
             ]
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByText(/Test Comment Username/i))
             .not.toBeInTheDocument();
@@ -251,7 +251,7 @@ describe("BlogPost", () => {
             ]
         });
         
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByText(/Test Comment Username/i))
             .toBeInTheDocument();
@@ -292,7 +292,7 @@ describe("BlogPost", () => {
             ]
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByRole("heading", { name: /Comments/i })).toBeInTheDocument();
     })
@@ -307,7 +307,7 @@ describe("New comment", () => {
             comments: []
         })
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByRole("textbox"))
             .toBeInTheDocument();
@@ -320,7 +320,7 @@ describe("New comment", () => {
             comments: []
         })
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByRole("textbox").placeholder)
             .toMatch(/New Comment/i);
@@ -333,7 +333,7 @@ describe("New comment", () => {
             comments: []
         })
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const textbox = screen.queryByRole("textbox");
 
@@ -353,7 +353,7 @@ describe("New comment", () => {
             comments: []
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         const textbox = screen.queryByRole("textbox");
 
@@ -377,7 +377,7 @@ describe("New Comment Submit Button", () => {
             comments: []
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
 
         expect(screen.queryByRole("button", { name: /Comment/i }))
             .toBeInTheDocument();
@@ -391,7 +391,7 @@ describe("New Comment Submit Button", () => {
         });
         const mockCreateComment = vi.fn(() => {})
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} createComment={mockCreateComment} />);
+        render(<BlogPost useAllData={mockUseAllData} postId={4} createComment={mockCreateComment} getBearerToken={() => "Bearer testToken"} />);
 
         const textbox = screen.queryByRole("textbox");
         const submitButton = screen.queryByRole("button",
