@@ -404,3 +404,30 @@ describe("New Comment Submit Button", () => {
         expect(mockCreateComment).toHaveBeenCalledWith(4, "Test Text");
     })
 })
+
+describe("Using bearer token", () => {
+    it("Calls getBearerToken on submit", async () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "Test Title",
+            text: "Test Text",
+            comments: []
+        });
+
+        const mockCreateComment = vi.fn(() => ({}))
+
+        const mockGetBearerToken = vi.fn(() => "Bearer testToken");
+
+        render(<BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />);
+
+        const textbox = screen.queryByRole("textbox");
+        const submitButton = screen.queryByRole("button",
+            { name: /Comment/i }
+        );
+        const user = userEvent.setup();
+        await user.type(textbox, "Test Text");
+        await user.click(submitButton);
+
+        expect(mockGetBearerToken)
+            .toHaveBeenCalled();
+    })
+})
