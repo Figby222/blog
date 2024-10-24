@@ -13,7 +13,7 @@ const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
     return (
         <>
             <Form 
-            submitListener={() => createComment(postId, textBoxValue)} 
+            submitListener={() => createComment(postId, textBoxValue, "Bearer testToken")} 
             submitButtonText={"Comment"}>
                 <TextBox label={""} placeholder={"New Comment..."} value={textBoxValue} onChange={setTextBoxValue} />
             </Form>
