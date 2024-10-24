@@ -466,4 +466,34 @@ describe("Using bearer token", () => {
         expect(mockCreateComment)
             .toHaveBeenCalledWith(4, "Test Text", "Bearer testToken")
     })
+    it("Calls createComment with different token", async () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "TEST TITle",
+            text: "Test Text",
+            comments: []
+        });
+        const mockCreateComment = vi.fn(() => ({}));
+        const mockGetBearerToken = vi.fn(() => "Bearer testDifferentToken");
+        const routes = [
+            {
+                path: "/posts/:postId",
+                element: <BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />
+            }
+        ]
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/", "/posts/4" ],
+            initialIndex: 1
+        });
+        _render(<RouterProvider router={router} />);
+
+        const textbox = screen.queryByRole("textbox");
+        const submitButton = screen.queryByRole("button",
+            { name: /Comment/i }
+        );
+        const user = userEvent.setup();
+        await user.type(textbox, "Test Text");
+        await user.click(submitButton);
+        expect(mockCreateComment).not.toHaveBeenCalledWith(4, "Test Text", "Bearer testToken");
+        expect(mockCreateComment).toHaveBeenCalledWith(4, "Test Text", "Bearer testDifferentToken");
+    })
 })
