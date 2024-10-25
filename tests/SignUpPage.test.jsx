@@ -192,7 +192,7 @@ describe("Errors", () => {
                 errors: [
                     {
                         path: "username",
-                        message: "Test Username Error",
+                        msg: "Test Username Error",
                     }
                 ]
             }
@@ -222,7 +222,7 @@ describe("Errors", () => {
                 errors: [
                     {
                         path: "username",
-                        message: "Test Different Username Error"
+                        msg: "Test Different Username Error"
                     }
                 ]
             }
@@ -274,11 +274,11 @@ describe("Errors", () => {
                 errors: [
                     {
                         path: "Username",
-                        message: "Test Username Error"
+                        msg: "Test Username Error"
                     },
                     {
                         path: "Username",
-                        message: "Test Different Username Error"
+                        msg: "Test Different Username Error"
                     }
                 ]
             }
