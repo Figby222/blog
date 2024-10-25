@@ -27,7 +27,7 @@ const SignUpPage = ({ createAnAccount }) => {
                         />
                     </label>
                     <section className="errors">
-                        <Errors errors={errors.filter((error) => error.field.toLowerCase() === "username")} />
+                        <Errors errors={errors.filter((error) => error.path.toLowerCase() === "username")} />
                     </section>
                 </div>
                 <div className="email-container">
@@ -38,7 +38,7 @@ const SignUpPage = ({ createAnAccount }) => {
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <section className="errors">
-                            <Errors errors={errors.filter((error) => error.field.toLowerCase() === "email")} />
+                            <Errors errors={errors.filter((error) => error.path.toLowerCase() === "email")} />
                         </section>
                     </label>
                 </div>
@@ -50,7 +50,7 @@ const SignUpPage = ({ createAnAccount }) => {
                         />
                     </label>
                     <section className="errors">
-                        <Errors errors={errors.filter((error) => error.field.toLowerCase() === "password")} />
+                        <Errors errors={errors.filter((error) => error.path.toLowerCase() === "password")} />
                     </section>
                 </div>
                 <div className="confirm-password-container">
@@ -61,7 +61,7 @@ const SignUpPage = ({ createAnAccount }) => {
                         />
                     </label>
                     <section className="errors">
-                        <Errors errors={errors.filter((error) => error.field.toLowerCase() === "confirm_password")} />
+                        <Errors errors={errors.filter((error) => error.path.toLowerCase() === "confirm_password")} />
                     </section>
                 </div>
 
