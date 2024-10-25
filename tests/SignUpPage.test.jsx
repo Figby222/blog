@@ -191,7 +191,7 @@ describe("Errors", () => {
             return {
                 errors: [
                     {
-                        field: "username",
+                        path: "username",
                         message: "Test Username Error",
                     }
                 ]
@@ -221,7 +221,7 @@ describe("Errors", () => {
             return {
                 errors: [
                     {
-                        field: "username",
+                        path: "username",
                         message: "Test Different Username Error"
                     }
                 ]
@@ -273,11 +273,11 @@ describe("Errors", () => {
             return {
                 errors: [
                     {
-                        field: "Username",
+                        path: "Username",
                         message: "Test Username Error"
                     },
                     {
-                        field: "Username",
+                        path: "Username",
                         message: "Test Different Username Error"
                     }
                 ]

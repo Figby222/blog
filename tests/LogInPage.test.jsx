@@ -234,7 +234,7 @@ describe("Submitting the form", () => {
         const storeBearerToken = vi.fn(() => {});
 
         const logInUser = vi.fn(() => ({ errors: [
-            { field: "all", message: "Test Error" }
+            { path: "all", message: "Test Error" }
         ]}));
 
         render(<LogInPage logInUser={logInUser} storeBearerToken={storeBearerToken} />);
@@ -287,7 +287,7 @@ describe("Errors", () => {
     it("Sets Error On Error", async () => {
         const onSubmit = vi.fn(() => ({
             errors: [
-                { field: "all", message: "Test Error Message" }
+                { path: "all", message: "Test Error Message" }
             ]
         }))
         render(<LogInPage logInUser={onSubmit} storeBearerToken={() => {}} />);
@@ -329,7 +329,7 @@ describe("Errors", () => {
     it("Can show a different error message", async () => {
         const onSubmit = vi.fn(() => ({
             errors: [
-                { field: "all", message: "Test Different Error Message" }
+                { path: "all", message: "Test Different Error Message" }
             ]
         }))
 
@@ -356,8 +356,8 @@ describe("Errors", () => {
     it("Can render multiple errors", async () => {
         const onSubmit = vi.fn(() => ({
             errors: [
-                { field: "all", message: "Test Error Message" },
-                { field: "all", message: "Test Different Error Message" }
+                { path: "all", message: "Test Error Message" },
+                { path: "all", message: "Test Different Error Message" }
             ]
         }))
 
