@@ -47,7 +47,7 @@ const createComment = async (postId, commentText, bearerToken) => {
         console.log(data);
 
     
-        return { message: data.message }
+        return { message: data.message, errors: data.errors }
 
     } catch (err) {
         console.error(err);
@@ -95,7 +95,7 @@ const createAnAccount = async (username, email, password, confirmPassword) => {
 
         console.log(data);
 
-        return { data };
+        return { data, errors: data.errors };
     } catch (err) {
         return { errors: [
             err
@@ -114,15 +114,24 @@ const logInUser = async (username, email, password) => {
             method: "POST"
         });
 
+        
         console.log(response.headers.get("Authorization"));
-    
+        
         const data = await response.json()
-
+        
         console.log(data);
-
+        if (response.status >= 400) {
+            return { errors: [
+                {
+                    path: "all",
+                    msg: data.message
+                }
+            ]}
+        }
+        
         const authToken = response.headers.get("Authorization");
-
-        return { token: authToken, message: data.message }
+        
+        return { token: authToken, message: data.message, errors: data.errors }
     } catch(err) {
         return { errors: [
             err
