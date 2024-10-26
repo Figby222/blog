@@ -402,4 +402,15 @@ describe("Links", () => {
         expect(screen.queryByRole("link", { name: /Blogs/i }))
             .toBeInTheDocument();
     })
+
+    it("Renders a Sign Up link", () => {
+        const onSubmit = vi.fn(() => ({}));
+
+        const mockStoreBearerToken = vi.fn(() => ({}));
+
+        render(<LogInPage logInUser={onSubmit} storeBearerToken={mockStoreBearerToken} />);
+
+        expect(screen.queryByRole("link", { name: /Sign Up/i }))
+            .toBeInTheDocument();
+    })
 })
