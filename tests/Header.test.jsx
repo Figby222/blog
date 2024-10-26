@@ -7,4 +7,8 @@ describe("Header existence", () => {
     it("Exists", () => {
         expect(Header).toBeDefined();
     })
+
+    it("Is a function", () => {
+        expect(Header).toBeTypeOf("function");
+    })
 })
