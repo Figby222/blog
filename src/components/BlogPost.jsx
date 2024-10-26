@@ -4,6 +4,7 @@ import TextBox from "./TextBox.jsx";
 import { useState } from "react";
 import Form from "./Form.jsx";
 import { useParams, Link } from "react-router-dom";
+import Header from "./Header.jsx";
 
 
 const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
@@ -40,12 +41,28 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
         return (<h1 className="error">An error has occurred</h1>)
     }
 
+    const links = [
+        {
+            name: "Blogs",
+            path: "/blogs",
+            isCurrentPage: false,
+        },
+        {
+            name: "Sign Up",
+            path: "/sign-up",
+            isCurrentPage: false,
+        },
+        {
+            name: "Log In",
+            path: "/log-in",
+            isCurrentPage: false,
+        }
+    ]
+
     return(
         <>
             <header>
-                <Link>Blogs</Link>
-                <Link>Sign Up</Link>
-                <Link>Log In</Link>
+                <Header links={links} loggedInUser={null} />
             </header>
             <main>
                 <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
