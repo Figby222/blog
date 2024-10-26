@@ -72,6 +72,28 @@ describe("Links", () => {
             .toBeInTheDocument();
     })
 
+    it("Can render multiple links", () => {
+        const links = [
+            {
+                name: "Blogs",
+                path: "/blogs",
+                isCurrentPage: false,
+            },
+            {
+                name: "Sign Up",
+                path: "/sign-up",
+                isCurrentPage: false,
+            }
+        ]
+
+        render(<Header links={links} loggedInUser={null} />);
+
+        expect(screen.queryByRole("link", { name: /Blogs/i }))
+            .toBeInTheDocument();
+        expect(screen.queryByRole("link", { name: /Sign Up/i }))
+            .toBeInTheDocument();
+    })
+
 
 
 })
