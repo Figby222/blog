@@ -29,4 +29,14 @@ describe("Links", () => {
 
         expect(renderedLinks.length).toBeGreaterThanOrEqual(1);
     })
+
+    it("Doesn't render a link without links set", () => {
+        const links = [];
+        
+        render(<Header links={links} loggedInUser={null} />);
+
+        const renderedLinks = screen.queryAllByRole("link");
+        
+        expect(renderedLinks.length).not.toBeGreaterThanOrEqual(1);
+    })
 })
