@@ -24,6 +24,7 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
         <>
             <Link>Blogs</Link>
             <Link>Sign Up</Link>
+            <Link>Log In</Link>
             <Form submitListener={() => submitHandler(username, email, password)} submitButtonText={"Submit"}>
                 <section className="errors">
                     <Errors errors={errors} />
