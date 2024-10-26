@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Header from "./Header.jsx";
 
 const Blogs = ({ useAllData }) => {
     const { error, loading, data } = useAllData();
@@ -8,12 +9,29 @@ const Blogs = ({ useAllData }) => {
         return <h1 className="loading">Loading...</h1>
     }
 
+    const links = [
+        {
+            name: "Blogs",
+            path: "/blogs",
+            isCurrentPage: true,
+        },
+        {
+            name: "Sign Up",
+            path: "/sign-up",
+            isCurrentPage: false,
+        },
+        {
+            name: "Log In",
+            path: "/log-in",
+            isCurrentPage: false,
+        }
+    ]
+
     return (
         <>
-        <h1 className="main-heading"></h1>
-        <Link>Blogs</Link>
-        <Link>Sign Up</Link>
-        <Link>Log In</Link>
+        <header>
+            <Header links={links} loggedInUser={null} />
+        </header>
         {
             data &&
             <>
