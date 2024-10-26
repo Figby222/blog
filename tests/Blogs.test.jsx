@@ -167,4 +167,15 @@ describe("links", () => {
 
         expect(links.length).toBeGreaterThanOrEqual(1);
     })
+
+    it("Renders a link for Blogs", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: []
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByRole("link", { name: /Blogs/i }))
+            .toBeInTheDocument();
+    })
 })
