@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = ({ links, loggedInUser }) => {
     return (
         <>
-            <h1 className="main-heading"></h1>
+            <h1 className="main-heading">Figby</h1>
             { links.map((link) => {
                 return <Link key={link.path}>{ link.name }</Link>
             })}
