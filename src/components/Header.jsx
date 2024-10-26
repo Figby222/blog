@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = ({ links, loggedInUser }) => {
     return (
         <>
-        <Link></Link>
+        { links.length && <Link></Link> }
         </>
     )
 };
