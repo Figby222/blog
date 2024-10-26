@@ -154,3 +154,17 @@ describe("Blog list", () => {
                         .toBeInTheDocument();
     })
 })
+
+describe("links", () => {
+    it("Renders a link", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: []
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        const links = screen.queryAllByRole("link");
+
+        expect(links.length).toBeGreaterThanOrEqual(1);
+    })
+})
