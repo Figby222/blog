@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Blogs = ({ useAllData }) => {
     const { error, loading, data } = useAllData();
@@ -9,6 +10,7 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
+        <Link></Link>
         {
             data &&
             <>
