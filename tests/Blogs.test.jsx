@@ -178,4 +178,15 @@ describe("links", () => {
         expect(screen.queryByRole("link", { name: /Blogs/i }))
             .toBeInTheDocument();
     })
+
+    it("Renders a link to Sign Up page", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: []
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByRole("link", { name: /Sign Up/i }))
+            .toBeInTheDocument();
+    })
 })
