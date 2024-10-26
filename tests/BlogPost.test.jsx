@@ -528,4 +528,36 @@ describe("Links", () => {
         expect(links.length).toBeGreaterThanOrEqual(1);
 
     })
+
+    it("Renders a Blogs link", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "",
+            text: "",
+            comments: []
+        });
+
+        const mockCreateComment = vi.fn(() => ({}));
+
+        const mockGetBearerToken = vi.fn(() => "Bearer testToken");
+
+        const routes = [
+            {
+                path: "/posts/:postId",
+                element: <BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />
+            }
+        ]
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/", "/posts/4" ],
+            initialIndex: 1
+        });
+
+        _render(<RouterProvider router={router} />);
+
+        expect(screen.queryByRole("link", { name: /Blogs/i }))
+            .toBeInTheDocument();
+
+        
+
+
+    })
 })
