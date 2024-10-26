@@ -3,7 +3,7 @@ import Comment from "./Comment.jsx";
 import TextBox from "./TextBox.jsx";
 import { useState } from "react";
 import Form from "./Form.jsx";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 
 const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
@@ -42,6 +42,9 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
 
     return(
         <>
+            <header>
+                <Link></Link>
+            </header>
             <main>
                 <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
                 <p className="blog-text">{ data && data.text || "Loading..."}</p>
