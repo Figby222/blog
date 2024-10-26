@@ -55,6 +55,23 @@ describe("Links", () => {
             .toBeInTheDocument();
     })
 
+    it("Renders link with different content", () => {
+        const links = [
+            {
+                name: "Sign Up",
+                path: "/sign-up",
+                isCurrentPage: false,
+            }
+        ]
+
+        render(<Header links={links} loggedInUser={null} />);
+
+        expect(screen.queryByRole("link", { name: /Blogs/i }))
+            .not.toBeInTheDocument();
+        expect(screen.queryByRole("link", { name: /Sign Up/i }))
+            .toBeInTheDocument();
+    })
+
 
 
 })
