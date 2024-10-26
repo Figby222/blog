@@ -97,3 +97,15 @@ describe("Links", () => {
 
 
 })
+
+describe("Title", () => {
+    it("Renders a heading", () => {
+        const links = [];
+
+        render(<Header links={links} loggedInUser={null} />);
+
+        const headings = screen.queryAllByRole("heading");
+
+        expect(headings.length).toBeGreaterThanOrEqual(1);
+    })
+})
