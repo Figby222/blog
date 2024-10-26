@@ -10,7 +10,7 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
-        <Link></Link>
+        <Link>Blogs</Link>
         {
             data &&
             <>
