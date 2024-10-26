@@ -10,6 +10,7 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
+        <h1 className="main-heading"></h1>
         <Link>Blogs</Link>
         <Link>Sign Up</Link>
         <Link>Log In</Link>
