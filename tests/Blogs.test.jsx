@@ -214,4 +214,15 @@ describe("Title", () => {
     
         expect(headings.length).toBeGreaterThanOrEqual(1);
     })
+
+    it("Has the correct text", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: []
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByRole("heading", { name: /Figby/i }))
+            .toBeInTheDocument();
+    })
 })
