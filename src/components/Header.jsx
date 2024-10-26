@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const Header = ({ links, loggedInUser }) => {
     return (
         <>
-        { links.length && <Link>{ links[0].name }</Link> }
+            { links.map((link) => {
+                return <Link key={link.path}>{ link.name }</Link>
+            })}
         </>
     )
 };
