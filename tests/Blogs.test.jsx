@@ -201,3 +201,17 @@ describe("links", () => {
             .toBeInTheDocument();
     })
 })
+
+describe("Title", () => {
+    it("Has a heading", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: []
+        })
+    
+        render(<Blogs useAllData={mockUseAllData} />);
+    
+        const headings = screen.queryAllByRole("heading");
+    
+        expect(headings.length).toBeGreaterThanOrEqual(1);
+    })
+})
