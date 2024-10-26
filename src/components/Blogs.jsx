@@ -11,6 +11,7 @@ const Blogs = ({ useAllData }) => {
     return (
         <>
         <Link>Blogs</Link>
+        <Link>Sign Up</Link>
         {
             data &&
             <>
