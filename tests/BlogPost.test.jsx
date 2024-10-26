@@ -621,3 +621,34 @@ describe("Links", () => {
 
     })
 })
+
+describe("title", () => {
+    it("Renders a title heading", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "",
+            text: "",
+            comments: [],
+        });
+
+        const mockCreateComment = vi.fn(() => ({}));
+
+        const mockGetBearerToken = vi.fn(() => null);
+
+        const routes = [
+            {
+                path: "/posts/:postId",
+                element: <BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />
+            }
+        ]
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/", "/posts/4" ],
+            initialIndex: 1
+        });
+
+        _render(<RouterProvider router={router} />);
+
+        const mainTitleHeading = screen.queryByRole("heading", { name: /Figby/i });
+
+        expect(mainTitleHeading).toBeInTheDocument();
+    })
+})
