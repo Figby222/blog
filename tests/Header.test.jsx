@@ -108,4 +108,13 @@ describe("Title", () => {
 
         expect(headings.length).toBeGreaterThanOrEqual(1);
     })
+
+    it("Renders a heading for title", () => {
+        const links = [];
+
+        render(<Header links={links} loggedInUser={null} />);
+
+        expect(screen.queryByRole("heading", { name: /Figby/i }))
+            .toBeInTheDocument();
+    })
 })
