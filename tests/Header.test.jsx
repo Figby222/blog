@@ -39,4 +39,22 @@ describe("Links", () => {
         
         expect(renderedLinks.length).not.toBeGreaterThanOrEqual(1);
     })
+
+    it("Renders link with correct content", () => {
+        const links = [
+            {
+                name: "Blogs",
+                path: "/blogs",
+                isCurrentPage: false,
+            }
+        ]
+
+        render(<Header links={links} loggedInUser={null} />);
+
+        expect(screen.queryByRole("link", { name: /Blogs/i }))
+            .toBeInTheDocument();
+    })
+
+
+
 })
