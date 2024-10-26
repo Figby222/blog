@@ -12,3 +12,21 @@ describe("Header existence", () => {
         expect(Header).toBeTypeOf("function");
     })
 })
+
+describe("Links", () => {
+    it("Renders a link", () => {
+        const links = [
+            {
+                name: "Blogs",
+                path: "/blogs",
+                isCurrentPage: false,
+            }
+        ]
+
+        render(<Header links={links} loggedInUser={null} />);
+
+        const renderedLinks = screen.queryAllByRole("link");
+
+        expect(renderedLinks.length).toBeGreaterThanOrEqual(1);
+    })
+})
