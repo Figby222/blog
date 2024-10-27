@@ -40,7 +40,7 @@ const Blogs = ({ useAllData }) => {
                 <ul className="blogs-list" aria-label="blogs">
                     { data.blogs.map((blog) => {
                         return <li className="blog" key={blog.id}>
-                            <Link>
+                            <Link to={`/posts/${blog.id}`}>
                                 <p className="username">{ blog.username }</p>
                                 <h2 className="blog-title">{ blog.title }</h2>
                             </Link>
@@ -51,7 +51,7 @@ const Blogs = ({ useAllData }) => {
             </>
 
         }
-        
+
         </>
     )
 };
