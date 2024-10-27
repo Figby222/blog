@@ -29,6 +29,7 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
+        <Link>Test Title</Link>
         <header>
             <Header links={links} loggedInUser={null} />
         </header>
