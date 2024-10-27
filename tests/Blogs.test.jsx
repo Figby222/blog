@@ -226,3 +226,22 @@ describe("Title", () => {
             .toBeInTheDocument();
     })
 })
+
+describe("Blog Links", () => {
+    it("Renders a blog link", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: [
+                {
+                    id: 4,
+                    title: "Test Title",
+                    username: "Creator"
+                }
+            ]
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByRole("link", { name: /Test Title/i }))
+            .toBeInTheDocument();
+    })
+})
