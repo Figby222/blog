@@ -33,23 +33,17 @@ const Blogs = ({ useAllData }) => {
             <Header links={links} loggedInUser={null} />
         </header>
         {
+
             data &&
             <>
             <section className="blogs">
                 <ul className="blogs-list" aria-label="blogs">
                     { data.blogs.map((blog) => {
-
-                        if (blog.id === data.blogs[0].id) {
-                            return <li className="blog" key={blog.id}>
-                                    <Link>
-                                        <p className="username">{ blog.username }</p>
-                                        <h2 className="blog-title">{ blog.title }</h2>
-                                    </Link>
-                                </li>
-                        }
                         return <li className="blog" key={blog.id}>
-                            <p className="username">{ blog.username }</p>
-                            <h2 className="blog-title">{ blog.title }</h2>
+                            <Link>
+                                <p className="username">{ blog.username }</p>
+                                <h2 className="blog-title">{ blog.title }</h2>
+                            </Link>
                         </li>
                     })}
                 </ul>
@@ -57,6 +51,7 @@ const Blogs = ({ useAllData }) => {
             </>
 
         }
+        
         </>
     )
 };
