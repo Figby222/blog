@@ -264,4 +264,28 @@ describe("Blog Links", () => {
         expect(screen.queryByRole("link", { name: /Test Different Title/i }))
             .toBeInTheDocument();
     })
+
+    it("Renders multiple blog links", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            blogs: [
+                {
+                    id: 4,
+                    title: "Test Title",
+                    username: "Creator",
+                },
+                {
+                    id: 5,
+                    title: "Test Different Title",
+                    username: "Creator"
+                }
+            ]
+        });
+
+        render(<Blogs useAllData={mockUseAllData} />);
+
+        expect(screen.queryByRole("link", { name: /Test Title/i }))
+            .toBeInTheDocument();
+        expect(screen.queryByRole("link", { name: /Test Different Title/i }))
+            .toBeInTheDocument();
+    })
 })
