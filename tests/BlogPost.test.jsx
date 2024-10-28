@@ -177,7 +177,9 @@ describe("BlogPost", () => {
             comments: [
                 {
                     id: 4,
-                    creator: "Test Comment Username",
+                    creator: {
+                        username: "Test Comment Username",
+                    },
                     text: "Test Comment Text",
                     timestamp: "Test TimeStamp",
                 }
@@ -203,7 +205,9 @@ describe("BlogPost", () => {
             comments: [
                 {
                     id: 5,
-                    creator: "A different username",
+                    creator: {
+                        username: "A different username",
+                    },
                     text: "Different Comment Text",
                     timestamp: "A different TimeStamp",
                 }
@@ -239,13 +243,17 @@ describe("BlogPost", () => {
             comments: [
                 {
                     id: 4,
-                    creator: "Test Comment Username",
+                    creator: {
+                        username: "Test Comment Username",
+                    },
                     text: "Test Comment Text",
                     timestamp: "Test TimeStamp",
                 },
                 {
                     id: 5,
-                    creator: "A different username",
+                    creator: {
+                        username: "A different username",
+                    },
                     text: "Different Comment Text",
                     timestamp: "A different TimeStamp",
                 }
@@ -280,13 +288,17 @@ describe("BlogPost", () => {
             comments: [
                 {
                     id: 4,
-                    creator: "Test Comment Username",
+                    creator: {
+                        username: "Test Comment Username",
+                    },
                     text: "Test Comment Text",
                     timestamp: "Test TimeStamp",
                 },
                 {
                     id: 5,
-                    creator: "A different username",
+                    creator: {
+                        username: "A different username",
+                    },
                     text: "Different Comment Text",
                     timestamp: "A different TimeStamp",
                 }
