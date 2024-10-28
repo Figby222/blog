@@ -37,7 +37,9 @@ describe("useAllData", () => {
                 {
                     id: 4,
                     title: "Test Blog Title",
-                    username: "Test Blog Username"
+                    creator: {
+                        username: "Test Blog Username"
+                    }
                 }
             ]
         });
@@ -56,7 +58,9 @@ describe("Blog list", () => {
                 {
                     id: 4,
                     title: "Test Blog Title",
-                    username: "Test Blog Username"     
+                    creator: {
+                        username: "Test Blog Username"     
+                    }
                 }
             ]
         });
@@ -72,7 +76,9 @@ describe("Blog list", () => {
                 {
                     id: 4,
                     title: "Test Different Blog Title",
-                    username: "Test Blog Username"
+                    creator: {
+                        username: "Test Blog Username"
+                    }
                 }
             ]
         });
@@ -92,7 +98,9 @@ describe("Blog list", () => {
                 {
                     id: 4,
                     title: "Test Blog Title",
-                    username: "Test Blog Username"
+                    creator: {
+                        username: "Test Blog Username"
+                    }
                 }
             ]
         });
@@ -109,7 +117,9 @@ describe("Blog list", () => {
                 {
                     id: 4,
                     title: "Test Blog Title",
-                    username: "Test Different Blog Username"
+                    creator: {
+                        username: "Test Different Blog Username"
+                    }
                 }
             ]
         });
@@ -129,12 +139,16 @@ describe("Blog list", () => {
                 {
                     id: 4,
                     title: "Test Blog Title",
-                    username: "Test Blog Username"
+                    creator: {
+                        username: "Test Blog Username"
+                    }
                 },
                 {
                     id: 4,
                     title: "Test Different Blog Title",
-                    username: "Test Different Blog Username"
+                    creator: {
+                        username: "Test Different Blog Username"
+                    }
                 }
             ]
         })
@@ -234,7 +248,9 @@ describe("Blog Links", () => {
                 {
                     id: 4,
                     title: "Test Title",
-                    username: "Creator"
+                    creator: {
+                        username: "Creator"
+                    }
                 }
             ]
         });
@@ -251,7 +267,9 @@ describe("Blog Links", () => {
                 {
                     id: 5,
                     title: "Test Different Title",
-                    username: "Creator"
+                    creator: {
+                        username: "Creator"
+                    }
                 }
             ]
 
@@ -271,12 +289,16 @@ describe("Blog Links", () => {
                 {
                     id: 4,
                     title: "Test Title",
-                    username: "Creator",
+                    creator: {
+                        username: "Creator",
+                    }
                 },
                 {
                     id: 5,
                     title: "Test Different Title",
-                    username: "Creator"
+                    creator: {
+                        username: "Creator"
+                    }
                 }
             ]
         });
