@@ -41,7 +41,7 @@ const Blogs = ({ useAllData }) => {
                     { data.blogs.map((blog) => {
                         return <li className="blog" key={blog.id}>
                             <Link to={`/posts/${blog.id}`}>
-                                <p className="username">{ blog.username }</p>
+                                <p className="username">{ blog.creator.username }</p>
                                 <h2 className="blog-title">{ blog.title }</h2>
                             </Link>
                         </li>
