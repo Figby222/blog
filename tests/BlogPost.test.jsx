@@ -40,6 +40,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [],
         });
 
@@ -54,6 +57,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [],
         })
 
@@ -71,6 +77,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -85,6 +94,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -112,6 +124,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "A different title",
             text: "Different text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -129,6 +144,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "A different title",
             text: "Different text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -143,6 +161,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [],
         });
 
@@ -157,6 +178,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Blog Title",
             text: "Blog Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [],
         });
 
@@ -174,6 +198,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [
                 {
                     id: 4,
@@ -202,6 +229,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [
                 {
                     id: 5,
@@ -240,6 +270,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [
                 {
                     id: 4,
@@ -285,6 +318,9 @@ describe("BlogPost", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [
                 {
                     id: 4,
@@ -348,6 +384,9 @@ describe("New comment", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         })
 
@@ -361,6 +400,9 @@ describe("New comment", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         })
 
@@ -374,6 +416,9 @@ describe("New comment", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         })
 
@@ -394,6 +439,9 @@ describe("New comment", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -418,6 +466,9 @@ describe("New Comment Submit Button", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -431,6 +482,9 @@ describe("New Comment Submit Button", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
         const mockCreateComment = vi.fn(() => {})
@@ -454,6 +508,9 @@ describe("Using bearer token", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "Test Title",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -479,6 +536,9 @@ describe("Using bearer token", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "TEST TITle",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
         const mockCreateComment = vi.fn(() => ({}));
@@ -513,6 +573,9 @@ describe("Using bearer token", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "TEST TITle",
             text: "Test Text",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
         const mockCreateComment = vi.fn(() => ({}));
@@ -546,6 +609,9 @@ describe("Links", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "",
             text: "",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -576,6 +642,9 @@ describe("Links", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "",
             text: "",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -608,6 +677,9 @@ describe("Links", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "",
             text: "",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: []
         });
 
@@ -638,6 +710,9 @@ describe("Links", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "",
             text: "",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [],
         });
 
@@ -670,6 +745,9 @@ describe("title", () => {
         const mockUseAllData = getUseAllDataMock(false, false, {
             title: "",
             text: "",
+            creator: {
+                username: "Test Creator Username",
+            },
             comments: [],
         });
 
