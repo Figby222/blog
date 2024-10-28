@@ -310,6 +310,37 @@ describe("BlogPost", () => {
         expect(screen.queryByRole("heading", { name: /Comments/i })).toBeInTheDocument();
     })
 
+    it("Renders creator username", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "",
+            text: "",
+            creator: {
+                username: "Test Creator Username",
+            },
+            comments: []
+        });
+
+        const mockCreateComment = vi.fn(() => ({}));
+
+        const mockGetBearerToken = vi.fn(() => "Bearer testToken");
+
+        const routes = [
+            {
+                path: "/posts/:postId",
+                element: <BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />
+            }
+        ]
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/", "/posts/4" ],
+            initialIndex: 1
+        });
+
+        _render(<RouterProvider router={router} />);
+
+        expect(screen.queryByText(/Test Creator Username/i))
+            .toBeInTheDocument();
+    })
+
 })
 
 describe("New comment", () => {
