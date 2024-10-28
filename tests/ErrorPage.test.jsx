@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ErrorPage from "../src/components/ErrorPage.jsx";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, createMemoryRouter, RouterProvider } from "react-router-dom";
 
 describe("Error Page", () => {
     it("Exists", () => {
@@ -14,9 +14,19 @@ describe("Error Page", () => {
     });
 
     it("Renders a heading", () => {
-        render(<MemoryRouter>
-            <ErrorPage status={404} message={"AAAA"} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={404} message={"AAAA"} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         const headings = screen.queryAllByRole("heading");
 
@@ -26,9 +36,19 @@ describe("Error Page", () => {
     it("Renders a heading with error status code", () => {
         const status = 404;
 
-        render(<MemoryRouter>
-            <ErrorPage status={status} message={""} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={404} message={""} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         
 
@@ -46,9 +66,19 @@ describe("Error Page", () => {
     it("Renders error with different status", () => {
         const status = 403;
 
-        render(<MemoryRouter>
-            <ErrorPage status={status} message={""} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={403} message={"AAAA"} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         const heading = screen.queryByRole(
             "heading",
@@ -61,9 +91,19 @@ describe("Error Page", () => {
     it("Renders a heading with the error message", () => {
         const errorMessage = "Error Message";
 
-        render(<MemoryRouter>
-            <ErrorPage status={404} message={errorMessage} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={404} message={errorMessage} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         const messageHeading = screen.queryByRole(
             "heading",
@@ -76,9 +116,19 @@ describe("Error Page", () => {
     it("Renders heading with a different error message", () => {
         const errorMessage = "Not Found";
 
-        render(<MemoryRouter>
-            <ErrorPage status={404} message={errorMessage} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={404} message={errorMessage} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         const messageHeading = screen.queryByRole(
             "heading",
@@ -89,9 +139,19 @@ describe("Error Page", () => {
     })
 
     it("Renders a link", () => {
-        render(<MemoryRouter>
-            <ErrorPage status={404} message={""} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={404} message={""} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         const links = screen.queryAllByRole("link");
 
@@ -99,9 +159,19 @@ describe("Error Page", () => {
     })
 
     it(`Renders a link with "home" text`, () => {
-        render(<MemoryRouter>
-            <ErrorPage status={404} message={""} />
-        </MemoryRouter>);
+        const routes = [
+            {
+                path: "/",
+                element: <ErrorPage status={404} message={""} />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
 
         const link = screen.queryByRole(
             "link",
