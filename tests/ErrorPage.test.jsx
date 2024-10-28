@@ -181,3 +181,33 @@ describe("Error Page", () => {
         expect(link).toBeInTheDocument();
     })
 })
+
+describe("Throwing an error from component", () => {
+    it("Renders the correct details", () => {
+        const ThrowError = () => {
+            const error = new Error("An error has occurred");
+            error.status = 403;
+            throw error;
+        }
+        const routes = [
+            {
+                path: "/",
+                element: <ThrowError />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+    
+        render(<RouterProvider router={router} />);
+
+        expect(screen.queryByText(/403/i))
+            .toBeInTheDocument();
+        expect(screen.queryByText(/You are not authorized to view this resource/i))
+            .toBeInTheDocument();
+    })
+
+
+})
