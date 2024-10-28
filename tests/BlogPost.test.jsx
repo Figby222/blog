@@ -377,6 +377,39 @@ describe("BlogPost", () => {
             .toBeInTheDocument();
     })
 
+    it("Renders different creator username", () => {
+        const mockUseAllData = getUseAllDataMock(false, false, {
+            title: "",
+            text: "",
+            creator: {
+                username: "Test Different Creator Username",
+            },
+            comments: [],
+        });
+
+        const mockCreateComment = vi.fn(() => ({}));
+        
+        const mockGetBearerToken = vi.fn(() => "Bearer testToken");
+
+        const routes = [
+            {
+                path: "/posts/:postId",
+                element: <BlogPost useAllData={mockUseAllData} createComment={mockCreateComment} getBearerToken={mockGetBearerToken} />
+            }
+        ]
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/", "/posts/4" ],
+            initialIndex: 1
+        });
+
+        _render(<RouterProvider router={router} />);
+
+        expect(screen.queryByText(/Test Creator Username/i))
+            .not.toBeInTheDocument();
+        expect(screen.queryByText(/Test different creator username/i))
+            .toBeInTheDocument();
+    })
+
 })
 
 describe("New comment", () => {
