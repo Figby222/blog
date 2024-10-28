@@ -209,5 +209,37 @@ describe("Throwing an error from component", () => {
             .toBeInTheDocument();
     })
 
+    it("Renders resource not found error on 404 status", () => {
+        const ThrowError = () => {
+            const error = new Error("Target resource not found");
+            error.status = 404;
+            throw error;
+        }
+
+        const routes = [
+            {
+                path: "/",
+                element: <ThrowError />,
+                errorElement: <ErrorPage />
+            }
+        ]
+    
+        const router = createMemoryRouter(routes, {
+            initialEntries: [ "/" ]
+        });
+
+        render(<RouterProvider router={router} />);
+
+        expect(screen.queryByText(/403/i))
+            .not.toBeInTheDocument();
+        expect(screen.queryByText(/You are unauthorized to view this resource/i))
+            .not.toBeInTheDocument();
+
+        expect(screen.queryByText(/404/i))
+            .toBeInTheDocument();
+        expect(screen.queryByText(/Target resource not found/i))
+            .toBeInTheDocument();
+    })
+
 
 })
