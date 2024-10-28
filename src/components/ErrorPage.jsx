@@ -7,15 +7,20 @@ const ErrorPage = ({ status, message }) => {
     let errorStatus = status;
     let errorMessage = message;
 
-    if (error && error.status != 404) {
+    if (error) {
         errorStatus = error.status;
-        errorMessage = "You are not authorized to view this resource";
+        errorMessage = 
+            error.status === 403 ?
+                "You are not authorized to view this resource" :
+            error.status === 404 ?
+                "Target resource not found" :
+                "An error has occurred"
     }
     
     return (
         <>
             <h1 className="main-heading">
-                { error ? 403 : status } - { errorMessage }
+                { errorStatus } - { errorMessage }
             </h1>
             <Link className="home-link" to="/">
                 Home
