@@ -75,7 +75,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
                     { data && data.comments.map((comment) => {
                         return (
                             <li key={comment.id}>
-                                <Comment username={comment.creator} timestamp={comment.timestamp}>
+                                <Comment username={comment.creator.username} timestamp={comment.timestamp}>
                                     { comment.text }
                                 </Comment>
                             </li>
