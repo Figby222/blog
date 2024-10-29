@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { screen, render as _render, act } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import BlogPost from "../src/components/BlogPost.jsx";
@@ -18,6 +18,9 @@ const getUseAllDataMock = (error, loading, data) => {
 }
 
 describe("BlogPost", () => {
+    afterEach(() => {
+        vi.restoreAllMocks();
+    })
     it("Exists", () => {
         expect(BlogPost).toBeDefined();
     })
