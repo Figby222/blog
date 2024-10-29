@@ -11,3 +11,7 @@ main {
 
     gap: 10px;
 }
+
+.blog-text {
+    justify-self: center;
+}
