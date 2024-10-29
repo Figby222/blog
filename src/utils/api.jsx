@@ -10,6 +10,11 @@ const useBlogPostData = (postId) => {
     useEffect(() => {
         fetch(`${apiLink}/posts/${postId}`, { mode: "cors" })
             .then((response) => {
+                if (response.status > 400) {
+                    const error = new Error("An error has occurred")
+                    error.status = response.status;
+                    throw error;
+                }
                 return response.json();
             })
             .then((response) => {
@@ -43,6 +48,12 @@ const createComment = async (postId, commentText, bearerToken) => {
             method: "POST"
         })
 
+        if (response.status > 400) {
+            const error = new Error("An error has occurred");
+            error.status = response.status;
+            throw error;
+        }
+
         const data = await response.json();
 
         console.log(data);
@@ -51,7 +62,9 @@ const createComment = async (postId, commentText, bearerToken) => {
         return { message: data.message, errors: data.errors }
 
     } catch (err) {
-        console.error(err);
+        return { errors: [
+            err
+        ]}
     }
 }
 
@@ -67,6 +80,11 @@ const useBlogsListData = () => {
     useEffect(() => {
         fetch(`${apiLink}/posts`, { mode: "cors" })
             .then((response) => {
+                if (response.status > 400) {
+                    const error = new Error("An error has occurred");
+                    error.status = response.status;
+                    throw error;
+                }
                 return response.json();
             })
             .then((response) => {
@@ -91,6 +109,11 @@ const createAnAccount = async (username, email, password, confirmPassword) => {
             },
             method: "POST"
         });
+
+        if (response.status > 400) {
+            const error = new Error("An error has occurred");
+            error.status = response.status();
+        }
     
         const data = await response.json();
 
@@ -121,13 +144,10 @@ const logInUser = async (username, email, password) => {
         const data = await response.json()
         
         console.log(data);
-        if (response.status >= 400) {
-            return { errors: [
-                {
-                    path: "all",
-                    msg: data.message
-                }
-            ]}
+        if (response.status > 400) {
+            const error = new Error("An error has occurred");
+            error.statusCode = response.status;
+            throw error;
         }
         
         const authToken = response.headers.get("Authorization");
