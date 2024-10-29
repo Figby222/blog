@@ -225,7 +225,7 @@ describe("Error Page", () => {
 describe("Throwing an error from component", () => {
     it("Renders the correct details", () => {
         const ThrowError = () => {
-            const error = new Error("An error has occurred");
+            const error = new Error("You are not authorized to view this resource");
             error.status = 403;
             throw error;
         }
