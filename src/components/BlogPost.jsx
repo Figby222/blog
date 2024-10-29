@@ -87,22 +87,22 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
                 <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
                 <p className="blog-text">{ data && data.text || "Loading..."}</p>
                 <p className="blog-creator">{ data && data.creator.username || "Loading..." }</p>
+                <section className="comments" aria-label="comments">
+                    <h2 className="comments-heading">Comments</h2>
+                    <NewCommentForm postId={parseInt(postId)} createComment={onCreateComment} getBearerToken={getBearerToken} />
+                    <ul className="comments-list">
+                        { data && data.comments.map((comment) => {
+                            return (
+                                <li key={comment.id}>
+                                    <Comment username={comment.creator.username} timestamp={comment.timestamp}>
+                                        { comment.text }
+                                    </Comment>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </section>
             </main>
-            <section className="comments" aria-label="comments">
-                <h2 className="comments-heading">Comments</h2>
-                <NewCommentForm postId={parseInt(postId)} createComment={onCreateComment} getBearerToken={getBearerToken} />
-                <ul className="comments-list">
-                    { data && data.comments.map((comment) => {
-                        return (
-                            <li key={comment.id}>
-                                <Comment username={comment.creator.username} timestamp={comment.timestamp}>
-                                    { comment.text }
-                                </Comment>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </section>
         </>
     )
 };
