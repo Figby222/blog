@@ -7,6 +7,10 @@ ul {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 header {
     display: grid;
     grid-template-columns: repeat(3, auto);
