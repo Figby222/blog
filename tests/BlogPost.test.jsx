@@ -517,7 +517,7 @@ describe("New Comment Submit Button", () => {
             },
             comments: []
         });
-        const mockCreateComment = vi.fn(() => {})
+        const mockCreateComment = vi.fn(() => ({}))
 
         render(<BlogPost useAllData={mockUseAllData} postId={4} createComment={mockCreateComment} getBearerToken={() => "Bearer testToken"} />);
 
