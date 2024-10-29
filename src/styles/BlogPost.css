@@ -5,6 +5,11 @@ main {
     padding: 10px;
 }
 
+form {
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+}
+
 .content {
     display: grid;
     grid-template-rows: repeat(auto, auto);
