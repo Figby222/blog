@@ -3,3 +3,10 @@ main {
     grid-template-rows: repeat(auto, auto);
     gap: 15px;
 }
+
+.content {
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+
+    gap: 10px;
+}
