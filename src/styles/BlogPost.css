@@ -17,6 +17,11 @@ form {
     gap: 10px;
 }
 
+.comments {
+    display: grid;
+    gap: 5px;
+}
+
 .blog-text {
     justify-self: center;
 }
