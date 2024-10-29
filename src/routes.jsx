@@ -6,6 +6,7 @@ import SignUpPage from "./components/SignUpPage.jsx";
 import LogInPage from "./components/LogInPage.jsx";
 import { useBlogPostData, createComment, useBlogsListData, createAnAccount, logInUser } from "./utils/api.jsx";
 import { storeBearerToken, getBearerToken } from "./utils/storage.jsx";
+
 const postId = 4;
 
 const routes = [
@@ -16,19 +17,23 @@ const routes = [
     },
     {
         path: "/posts/:postId",
-        element: <BlogPost useAllData={useBlogPostData} postId={postId} createComment={createComment} getBearerToken={getBearerToken} />
+        element: <BlogPost useAllData={useBlogPostData} postId={postId} createComment={createComment} getBearerToken={getBearerToken} />,
+        errorElement: <ErrorPage />
     },
     {
         path: "/posts",
-        element: <Blogs useAllData={useBlogsListData} />
+        element: <Blogs useAllData={useBlogsListData} />,
+        errorElement: <ErrorPage />
     },
     {
         path: "/sign-up",
-        element: <SignUpPage createAnAccount={createAnAccount} />
+        element: <SignUpPage createAnAccount={createAnAccount} />,
+        errorElement: <ErrorPage />
     },
     {
         path: "/log-in",
-        element: <LogInPage logInUser={logInUser} storeBearerToken={storeBearerToken} />
+        element: <LogInPage logInUser={logInUser} storeBearerToken={storeBearerToken} />,
+        errorElement: <ErrorPage />
     }
 ];
 
