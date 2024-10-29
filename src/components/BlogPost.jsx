@@ -59,6 +59,14 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
         }
     ]
 
+    const onCreateComment = async (postId, text, bearerToken) => {
+        const response = await createComment(postId, text, bearerToken);
+
+        if (response.error) {
+            throw response.error;
+        }
+    }
+
     return(
         <>
             <header>
@@ -71,7 +79,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
             </main>
             <section className="comments" aria-label="comments">
                 <h2 className="comments-heading">Comments</h2>
-                <NewCommentForm postId={parseInt(postId)} createComment={createComment} getBearerToken={getBearerToken} />
+                <NewCommentForm postId={parseInt(postId)} createComment={onCreateComment} getBearerToken={getBearerToken} />
                 <ul className="comments-list">
                     { data && data.comments.map((comment) => {
                         return (
