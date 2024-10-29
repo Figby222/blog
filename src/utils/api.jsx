@@ -65,9 +65,9 @@ const createComment = async (postId, commentText, bearerToken) => {
         return { message: data.message, errors: data.errors }
 
     } catch (err) {
-        return { errors: [
-            err
-        ]}
+        return {
+            error: err
+        }
     }
 }
 
@@ -128,9 +128,9 @@ const createAnAccount = async (username, email, password, confirmPassword) => {
 
         return { data, errors: data.errors };
     } catch (err) {
-        return { errors: [
-            err
-        ]}
+        return {
+            error: err
+        }
     }
 }
 
@@ -161,9 +161,9 @@ const logInUser = async (username, email, password) => {
         
         return { token: authToken, message: data.message, errors: data.errors }
     } catch(err) {
-        return { errors: [
-            err
-        ]};
+        return { 
+            error: err
+        };
     }
 
 
