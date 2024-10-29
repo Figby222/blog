@@ -1,3 +1,6 @@
 .blogs-list {
-    background-color: blue;
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+    gap: 15px;
+    align-items: center;
 }
