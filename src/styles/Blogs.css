@@ -14,3 +14,9 @@
 
     padding-bottom: 20px;
 }
+
+.blog-link {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+}
