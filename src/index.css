@@ -75,6 +75,7 @@ header {
 @media ( min-width: 1000px ) {
     :root {
         font-size: 1.24rem;
+        letter-spacing: .05rem;
     }
 
     nav {
