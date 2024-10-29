@@ -36,6 +36,11 @@ header {
     border-bottom: 1px solid black;
 }
 
+textarea {
+    padding: 0;
+    margin: 0;
+}
+
 .main-heading {
     grid-column: 1 / -1;
 }
