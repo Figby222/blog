@@ -84,9 +84,11 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
         <>
             <Header links={links} loggedInUser={null} />
             <main>
-                <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
-                <p className="blog-text">{ data && data.text || "Loading..."}</p>
-                <p className="blog-creator">{ data && data.creator.username || "Loading..." }</p>
+                <section className="content">
+                    <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
+                    <p className="blog-text">{ data && data.text || "Loading..."}</p>
+                    <p className="blog-creator">{ data && data.creator.username || "Loading..." }</p>   
+                </section>
                 <section className="comments" aria-label="comments">
                     <h2 className="comments-heading">Comments</h2>
                     <NewCommentForm postId={parseInt(postId)} createComment={onCreateComment} getBearerToken={getBearerToken} />
