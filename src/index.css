@@ -9,6 +9,7 @@ header {
     grid-template-rows: 1.5fr 1fr;
     align-items: center;
     justify-items: center;
+    border-bottom: 1px solid black;
 }
 
 .main-heading {
