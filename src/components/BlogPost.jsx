@@ -81,9 +81,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
 
     return(
         <>
-            <header>
-                <Header links={links} loggedInUser={null} />
-            </header>
+            <Header links={links} loggedInUser={null} />
             <main>
                 <h1 className="blog-title">{ data && data.title || "Loading..." }</h1>
                 <p className="blog-text">{ data && data.text || "Loading..."}</p>
