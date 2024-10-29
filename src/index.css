@@ -46,6 +46,10 @@ header {
     gap: 20px;
 }
 
+.blog {
+    background-color: rgba(97, 255, 247, 0.699);
+}
+
 @media ( min-width: 600px ) {
     nav {
         padding: 10px 0px;
