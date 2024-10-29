@@ -50,8 +50,12 @@ header {
     nav {
         padding: 10px 0px;
     }
-    
+
     .nav-ul {
         gap: 50px;
+    }
+
+    main {
+        padding: 10px 50px;
     }
 }
