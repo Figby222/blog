@@ -4,3 +4,7 @@ header {
     align-items: center;
     justify-items: center;
 }
+
+.main-heading {
+    grid-column: 1 / -1;
+}
