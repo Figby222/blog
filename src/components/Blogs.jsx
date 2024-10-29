@@ -30,25 +30,27 @@ const Blogs = ({ useAllData }) => {
     return (
         <>
         <Header links={links} loggedInUser={null} />
-        {
+        <main>
+            {
 
-            data &&
-            <>
-            <section className="blogs">
-                <ul className="blogs-list" aria-label="blogs">
-                    { data.blogs.map((blog) => {
-                        return <li className="blog" key={blog.id}>
-                            <Link to={`/posts/${blog.id}`}>
-                                <p className="username">{ blog.creator.username }</p>
-                                <h2 className="blog-title">{ blog.title }</h2>
-                            </Link>
-                        </li>
-                    })}
-                </ul>
-            </section>
-            </>
+                data &&
+                <>
+                <section className="blogs">
+                    <ul className="blogs-list" aria-label="blogs">
+                        { data.blogs.map((blog) => {
+                            return <li className="blog" key={blog.id}>
+                                <Link to={`/posts/${blog.id}`}>
+                                    <p className="username">{ blog.creator.username }</p>
+                                    <h2 className="blog-title">{ blog.title }</h2>
+                                </Link>
+                            </li>
+                        })}
+                    </ul>
+                </section>
+                </>
 
-        }
+            }
+        </main>
 
         </>
     )
