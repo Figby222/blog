@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Form from "./Form";
 import { useState } from "react";
 import Errors from "./Errors.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header.jsx";
 
 const LogInPage = ({ logInUser, storeBearerToken }) => {
@@ -11,6 +11,8 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
     const [ password, setPassword ] = useState("");
     const [ errors, setErrors ] = useState([]);
 
+    const navigate = useNavigate();
+
     const submitHandler = async (username, email, password) => {
         const response = await logInUser(username, email, password);
 
@@ -18,7 +20,10 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
 
         console.log(response);
 
-        response.token && storeBearerToken(response.token);
+        if(response.token) {
+            storeBearerToken(response.token);
+            navigate("/posts");
+        }
     }
 
     const links = [
