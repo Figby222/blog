@@ -3,7 +3,7 @@ import Comment from "./Comment.jsx";
 import TextBox from "./TextBox.jsx";
 import { useState } from "react";
 import Form from "./Form.jsx";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "./Header.jsx";
 
 
@@ -39,6 +39,8 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
 
     const [ submitError, setSubmitError ] = useState(false);
 
+    const navigate = useNavigate();
+
     if(submitError) {
         throw submitError;
     }
@@ -69,6 +71,10 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
         const response = await createComment(postId, text, bearerToken);
 
         if (response.error) {
+            if (response.error.status === 401) {
+                navigate("/log-in");
+                return;
+            }
             setSubmitError(response.error);
         }
     }
