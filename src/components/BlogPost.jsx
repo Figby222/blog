@@ -5,6 +5,7 @@ import { useState } from "react";
 import Form from "./Form.jsx";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "./Header.jsx";
+import "../styles/BlogPost.css";
 
 
 const NewCommentForm = ({ postId, createComment, getBearerToken }) => {
