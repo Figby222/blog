@@ -73,6 +73,10 @@ header {
         font-size: 1.24rem;
     }
 
+    nav {
+        padding: 10px;
+    }
+
     main {
         padding: 20px 64px;
     }
