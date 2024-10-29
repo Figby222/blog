@@ -23,3 +23,13 @@ header {
 .main-heading {
     grid-column: 1 / -1;
 }
+
+
+
+.nav-ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
