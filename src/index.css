@@ -45,3 +45,9 @@ header {
     justify-content: center;
     gap: 20px;
 }
+
+@media ( min-width: 600px ) {
+    .nav-ul {
+        gap: 50px;
+    }
+}
