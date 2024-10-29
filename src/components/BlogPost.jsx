@@ -37,6 +37,12 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
 
     const { error, loading, data } = useAllData(postId);
 
+    const [ submitError, setSubmitError ] = useState(false);
+
+    if(submitError) {
+        throw submitError;
+    }
+
     if(error) {
         throw error;
     }
@@ -63,7 +69,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
         const response = await createComment(postId, text, bearerToken);
 
         if (response.error) {
-            throw response.error;
+            setSubmitError(response.error);
         }
     }
 
