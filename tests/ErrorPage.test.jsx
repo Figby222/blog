@@ -14,10 +14,17 @@ describe("Error Page", () => {
     });
 
     it("Renders a heading", () => {
+        
+        const ThrowError = () => {
+            const error = new Error("AAAA")
+            error.status = 404;
+            throw error;
+        }
+
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={404} message={"AAAA"} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
@@ -34,12 +41,18 @@ describe("Error Page", () => {
     })
 
     it("Renders a heading with error status code", () => {
+        const ThrowError = () => {
+            const error = new Error();
+            error.status = 404;
+            throw error;
+        }
+
         const status = 404;
 
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={404} message={""} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
@@ -64,12 +77,18 @@ describe("Error Page", () => {
     })
 
     it("Renders error with different status", () => {
+
+        const ThrowError = () => {
+            const error = new Error("AAAA");
+            error.status = 403;
+            throw error;
+        }
         const status = 403;
 
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={403} message={"AAAA"} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
@@ -89,12 +108,17 @@ describe("Error Page", () => {
     })
 
     it("Renders a heading with the error message", () => {
+        const ThrowError = () => {
+            const error = new Error("Error Message");
+            error.status = 404;
+            throw error;
+        }
         const errorMessage = "Error Message";
 
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={404} message={errorMessage} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
@@ -114,12 +138,18 @@ describe("Error Page", () => {
     })
 
     it("Renders heading with a different error message", () => {
+        const ThrowError = () => {
+            const error = new Error("Not Found");
+            error.status = 404;
+            throw error;
+        }
+
         const errorMessage = "Not Found";
 
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={404} message={errorMessage} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
@@ -139,10 +169,15 @@ describe("Error Page", () => {
     })
 
     it("Renders a link", () => {
+        const ThrowError = () => {
+            const error = new Error("AAAA");
+            error.status = 404;
+            throw error;
+        }
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={404} message={""} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
@@ -159,10 +194,15 @@ describe("Error Page", () => {
     })
 
     it(`Renders a link with "home" text`, () => {
+        const ThrowError = () => {
+            const error = new Error("AAAA");
+            error.status = 404;
+            throw error;
+        }
         const routes = [
             {
                 path: "/",
-                element: <ErrorPage status={404} message={""} />,
+                element: <ThrowError />,
                 errorElement: <ErrorPage />
             }
         ]
