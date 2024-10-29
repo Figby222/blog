@@ -38,7 +38,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
     const { error, loading, data } = useAllData(postId);
 
     if(error) {
-        return (<h1 className="error">An error has occurred</h1>)
+        throw error;
     }
 
     const links = [
