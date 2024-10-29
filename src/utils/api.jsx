@@ -9,13 +9,16 @@ const useBlogPostData = (postId) => {
 
     useEffect(() => {
         fetch(`${apiLink}/posts/${postId}`, { mode: "cors" })
-            .then((response) => {
+            .then(async (response) => {
+                const data = await response.json();
+
                 if (response.status > 400) {
-                    const error = new Error("An error has occurred")
+                    const error = new Error(data.message)
                     error.status = response.status;
                     throw error;
                 }
-                return response.json();
+
+                return data;
             })
             .then((response) => {
                 setData({
@@ -48,13 +51,13 @@ const createComment = async (postId, commentText, bearerToken) => {
             method: "POST"
         })
 
+        const data = await response.json();
+        
         if (response.status > 400) {
-            const error = new Error("An error has occurred");
+            const error = new Error(data.message);
             error.status = response.status;
             throw error;
         }
-
-        const data = await response.json();
 
         console.log(data);
 
@@ -79,13 +82,15 @@ const useBlogsListData = () => {
 
     useEffect(() => {
         fetch(`${apiLink}/posts`, { mode: "cors" })
-            .then((response) => {
+            .then(async (response) => {
+                const data = await response.json();
+
                 if (response.status > 400) {
-                    const error = new Error("An error has occurred");
+                    const error = new Error(data.message);
                     error.status = response.status;
                     throw error;
                 }
-                return response.json();
+                return data;
             })
             .then((response) => {
                 setData(response)
@@ -110,12 +115,14 @@ const createAnAccount = async (username, email, password, confirmPassword) => {
             method: "POST"
         });
 
-        if (response.status > 400) {
-            const error = new Error("An error has occurred");
-            error.status = response.status();
-        }
-    
+        
         const data = await response.json();
+        
+        if (response.status > 400) {
+            const error = new Error(data.message);
+            error.status = response.status;
+            throw error;
+        }
 
         console.log(data);
 
@@ -145,7 +152,7 @@ const logInUser = async (username, email, password) => {
         
         console.log(data);
         if (response.status > 400) {
-            const error = new Error("An error has occurred");
+            const error = new Error(data.message);
             error.statusCode = response.status;
             throw error;
         }
