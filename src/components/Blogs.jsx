@@ -29,9 +29,7 @@ const Blogs = ({ useAllData }) => {
 
     return (
         <>
-        <header>
-            <Header links={links} loggedInUser={null} />
-        </header>
+        <Header links={links} loggedInUser={null} />
         {
 
             data &&
