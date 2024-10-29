@@ -72,4 +72,8 @@ header {
     :root {
         font-size: 1.24rem;
     }
+
+    main {
+        padding: 20px 64px;
+    }
 }
