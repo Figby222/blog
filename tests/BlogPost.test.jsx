@@ -107,17 +107,17 @@ describe("BlogPost", () => {
         expect(textParagraph).toBeInTheDocument();
     })
 
-    it ("Renders an error heading if error", () => {
-        const mockUseAllData = getUseAllDataMock(true, false, null);
+    it ("Throws an error if error", () => {
+        const error = new Error("Test Error");
+        error.status = 500;
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} />);
+        console.error = vi.fn(() => ({}));
 
-        const errorHeading = screen.queryByRole(
-            "heading",
-            { name: /error/i },
-        )
+        const mockUseAllData = getUseAllDataMock({ error }, false, null);
 
-        expect(errorHeading).toBeInTheDocument();
+        expect(() => render(<BlogPost useAllData={mockUseAllData} postId={4} />))
+            .toThrow();
+
     })
 
     it("Renders a different title", () => {
@@ -184,14 +184,8 @@ describe("BlogPost", () => {
             comments: [],
         });
 
-        render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />);
-
-        const errorHeading = screen.queryByRole(
-            "heading",
-            { name: /error/i },
-        );
-
-        expect(errorHeading).not.toBeInTheDocument();
+        expect(() => render(<BlogPost useAllData={mockUseAllData} postId={4} getBearerToken={() => "Bearer testToken"} />))
+            .not.toThrow();
     })
 
     it("Renders a comment", () => {
