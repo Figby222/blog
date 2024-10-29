@@ -10,15 +10,15 @@
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px 2px 2px rgb(75, 75, 75);
-    padding: 5px 10px;
-
-    padding-bottom: 20px;
 }
 
 .blog-link {
     display: grid;
     grid-template-rows: auto 1fr;
     align-items: center;
+    padding: 5px 10px;
+
+    padding-bottom: 20px;
 }
 .username {
     color: black;
