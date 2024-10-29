@@ -22,7 +22,7 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
 
         if(response.token) {
             storeBearerToken(response.token);
-            navigate("/posts");
+            navigate("/posts");a
         }
     }
 
