@@ -31,8 +31,8 @@ header {
     grid-template-columns: repeat(3, auto);
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    
+    gap: 20px;
+
     padding: 0;
     margin: 0;
 }
