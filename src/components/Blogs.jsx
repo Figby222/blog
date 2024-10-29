@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Header from "./Header.jsx";
+import "../styles/Blogs.css";
 
 const Blogs = ({ useAllData }) => {
     const { error, loading, data } = useAllData();
