@@ -71,4 +71,8 @@ button {
     .comments {
         gap: 10px;
     }
+
+    form {
+        gap: 5px;
+    }
 }
