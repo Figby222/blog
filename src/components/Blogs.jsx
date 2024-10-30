@@ -13,7 +13,7 @@ const Blogs = ({ useAllData }) => {
     const links = [
         {
             name: "Blogs",
-            path: "/blogs",
+            path: "/posts",
             isCurrentPage: true,
         },
         {
