@@ -63,4 +63,8 @@ button {
     .blog-creator {
         justify-self: center;
     }
+    
+    .comments-heading {
+        text-align: center;
+    }
 }
