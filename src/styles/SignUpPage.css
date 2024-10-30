@@ -1,3 +1,4 @@
-body {
-    background-color: blue;
+label {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
 }
