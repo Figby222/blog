@@ -44,11 +44,17 @@ const SignUpPage = ({ createAnAccount }) => {
         }
     ]
 
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        handleFormSubmission(username, email, password, confirmPassword);
+    }
+
     return (
         <>
             <Header links={links} loggedInUser={null} />
             <main className="SignUpPage-main">
-                <Form submitListener={() => handleFormSubmission(username, email, password, confirmPassword)} submitButtonText={"Submit"}>
+                <form onSubmit={(e) => submitForm(e)} >
                     <div className="username-container">
                         <label htmlFor="username" className="username">
                             Username
@@ -94,8 +100,8 @@ const SignUpPage = ({ createAnAccount }) => {
                             <Errors errors={errors.filter((error) => error.path.toLowerCase() === "confirm_password")} />
                         </section>
                     </div>
-
-                </Form>
+                    <button type="submit">Submit</button>
+                </form>
 
             </main>
         </>
