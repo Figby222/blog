@@ -77,3 +77,9 @@ button {
         grid-template-rows: 70px auto;
     }
 }
+
+@media ( min-width: 1000px ) {
+    .comments {
+        gap: 24px;
+    }
+}
