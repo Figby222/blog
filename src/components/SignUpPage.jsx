@@ -47,7 +47,7 @@ const SignUpPage = ({ createAnAccount }) => {
     return (
         <>
             <Header links={links} loggedInUser={null} />
-            <main>
+            <main className="SignUpPage-main">
                 <Form submitListener={() => handleFormSubmission(username, email, password, confirmPassword)} submitButtonText={"Submit"}>
                     <div className="username-container">
                         <label htmlFor="username" className="username">
