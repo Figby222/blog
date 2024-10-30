@@ -25,4 +25,8 @@ form {
     .SignUpPage-form {
         grid-template-rows: repeat(5, auto);
     }
+
+    .SignUpPage-submit {
+        justify-self: stretch;
+    }
 }
