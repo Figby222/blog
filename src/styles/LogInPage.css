@@ -9,3 +9,10 @@ label {
     display: grid;
     grid-template-rows: repeat(3, auto);
 }
+
+form {
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+    gap: 30px;
+    align-items: center;
+}
