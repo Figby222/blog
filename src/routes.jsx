@@ -12,17 +12,12 @@ const postId = 4;
 const routes = [
     {
         path: "/",
-        element: <App />,
+        element: <Blogs useAllData={useBlogsListData} />,
         errorElement: <ErrorPage />
     },
     {
         path: "/posts/:postId",
         element: <BlogPost useAllData={useBlogPostData} postId={postId} createComment={createComment} getBearerToken={getBearerToken} />,
-        errorElement: <ErrorPage />
-    },
-    {
-        path: "/posts",
-        element: <Blogs useAllData={useBlogsListData} />,
         errorElement: <ErrorPage />
     },
     {
