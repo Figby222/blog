@@ -53,6 +53,9 @@ button {
 }
 
 @media (min-width: 600px) {
+    .content {
+        gap: 24px;
+    }
     .blog-title {
         text-align: center;
     }
