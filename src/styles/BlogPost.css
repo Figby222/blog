@@ -34,3 +34,9 @@ form {
 button {
     justify-self: end;
 }
+
+.comments-list {
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+    gap: 15px;
+}
