@@ -54,7 +54,7 @@ const SignUpPage = ({ createAnAccount }) => {
         <>
             <Header links={links} loggedInUser={null} />
             <main className="SignUpPage-main">
-                <form onSubmit={(e) => submitForm(e)} >
+                <form className="SignUpPage-form" onSubmit={(e) => submitForm(e)} >
                     <div className="username-container">
                         <label htmlFor="username" className="username">
                             Username
