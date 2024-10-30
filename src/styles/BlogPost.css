@@ -74,5 +74,6 @@ button {
 
     form {
         gap: 5px;
+        grid-template-rows: 70px auto;
     }
 }
