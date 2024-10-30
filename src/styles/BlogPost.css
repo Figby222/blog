@@ -79,6 +79,9 @@ button {
 }
 
 @media ( min-width: 1000px ) {
+    main {
+        gap: 46px;
+    }
     .comments {
         gap: 24px;
     }
