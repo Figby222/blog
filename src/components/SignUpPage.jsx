@@ -100,7 +100,7 @@ const SignUpPage = ({ createAnAccount }) => {
                             <Errors errors={errors.filter((error) => error.path.toLowerCase() === "confirm_password")} />
                         </section>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="SignUpPage-submit">Submit</button>
                 </form>
 
             </main>
