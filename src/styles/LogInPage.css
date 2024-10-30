@@ -16,3 +16,7 @@ form {
     gap: 30px;
     align-items: center;
 }
+
+.errors {
+    margin-top: 10px;
+}
