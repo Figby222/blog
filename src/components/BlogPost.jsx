@@ -53,7 +53,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
     const links = [
         {
             name: "Blogs",
-            path: "/posts",
+            path: "/",
             isCurrentPage: false,
         },
         {
