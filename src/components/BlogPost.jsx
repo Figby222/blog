@@ -95,7 +95,7 @@ const BlogPost = ({ useAllData, createComment, getBearerToken }) => {
                     <ul className="comments-list">
                         { data && data.comments.map((comment) => {
                             return (
-                                <li key={comment.id}>
+                                <li key={comment.id} className="comment-li">
                                     <Comment username={comment.creator.username} timestamp={comment.timestamp}>
                                         { comment.text }
                                     </Comment>
