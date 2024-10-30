@@ -76,7 +76,7 @@ const LogInPage = ({ logInUser, storeBearerToken }) => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="LogInPage-submit">Submit</button>
                 </form>
             </main>
         </>
