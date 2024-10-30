@@ -40,3 +40,10 @@ button {
     grid-template-rows: repeat(auto, auto);
     gap: 15px;
 }
+
+.comment-li {
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+    align-items: center;
+    gap: 4px;
+}
