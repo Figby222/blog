@@ -86,8 +86,12 @@ button {
     .content {
         gap: 46px;
     }
-    
+
     .comments {
         gap: 24px;
+    }
+
+    form {
+        gap: 10px;
     }
 }
