@@ -82,6 +82,11 @@ button {
     main {
         gap: 46px;
     }
+
+    .content {
+        gap: 46px;
+    }
+    
     .comments {
         gap: 24px;
     }
