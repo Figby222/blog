@@ -37,7 +37,7 @@ header {
 }
 
 textarea {
-    padding: 0;
+    padding: 4px;
     margin: 0;
     width: 100%;
     box-sizing: border-box;
